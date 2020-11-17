@@ -1,7 +1,7 @@
 # baske-diary
 
 ## サイト概要
-自身のバスケに関する情報を管理するサイト。練習や試合の感想を投稿したり、今習得しようとしている技術をリスト化して管理できる。他のユーザーのページも閲覧できて、その投稿に対してコメントができたり、習得したい技術に関する質問ができる。
+バスケの試合や練習の感想などを記録して管理するサイト。練習や試合の感想を投稿したり、今習得しようとしている技術をリスト化できる他、試合日程や休みなどをカレンダー機能で管理できる。他のユーザーのページも閲覧できて、その投稿に対してコメントやいいねができ、習得したい技術に関する質問ができる。
 
 ### サイトテーマ
 バスケ管理日記
@@ -18,7 +18,7 @@
 ## 設計書
 
 ### 機能一覧
-<https://docs.google.com/spreadsheets/d/1uRxrvD51xmNN7Gs3T4XAxxDEJ6BiKxMr7WJCp-owyHU/edit#gid=1708375653>
+https://docs.google.com/spreadsheets/d/1CcFbJ_GQTVwdJL2YUuqVVEbUVUm34jEGZt6qMQFfr0g/edit?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
