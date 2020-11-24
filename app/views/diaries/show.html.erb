@@ -1,2 +1,7 @@
-<h1>Diaries#show</h1>
-<p>Find me in app/views/diaries/show.html.erb</p>
+<%= link_to "新規登録", new_diary_path %>
+
+<% @diaries.each do |diary| %>
+  <%= diary.title %>
+  <%= diary.created_at %>
+  <%= diary.body %>
+<% end %>
