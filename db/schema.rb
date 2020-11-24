@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_11_23_060632) do
 
   create_table "diaries", force: :cascade do |t|
+    t.integer "user_id", null: false
     t.string "title", null: false
     t.text "body", null: false
     t.datetime "created_at", null: false
@@ -20,12 +21,15 @@ ActiveRecord::Schema.define(version: 2020_11_23_060632) do
   end
 
   create_table "diary_comments", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "diary_id", null: false
     t.text "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "events", force: :cascade do |t|
+    t.integer "user_id", null: false
     t.string "title", null: false
     t.text "body"
     t.datetime "start", null: false
@@ -37,11 +41,14 @@ ActiveRecord::Schema.define(version: 2020_11_23_060632) do
   end
 
   create_table "favorites", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "diary_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "skills", force: :cascade do |t|
+    t.integer "user_id", null: false
     t.string "name", null: false
     t.string "level", default: "0", null: false
     t.datetime "created_at", null: false
