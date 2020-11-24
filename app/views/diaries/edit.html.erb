@@ -1,2 +1,16 @@
-<h1>Diaries#edit</h1>
-<p>Find me in app/views/diaries/edit.html.erb</p>
+<div>ダイアリー編集</div>
+
+
+<%= form_with model:@diary, local:true do |f| %>
+  <div class="diary-form">
+    <div>
+      <div><%= f.label :"タイトル" %></div>
+      <div><%= f.label :"ダイアリー内容" %></div>
+    </div>
+    <div>
+      <div><%= f.text_field :title %></div>
+      <div><%= f.text_field :body %></div>
+    </div>
+  </div>
+  <%= f.submit :"更新する"%>
+<% end %>
