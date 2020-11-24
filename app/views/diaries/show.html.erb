@@ -1,7 +1,26 @@
+<p id="notice"><%=  notice %></p>
+
 <%= link_to "新規登録", new_diary_path %>
 
-<% @diaries.each do |diary| %>
-  <%= diary.title %>
-  <%= diary.created_at %>
-  <%= diary.body %>
-<% end %>
+
+  <table>
+    <thead>
+      <tr>
+        <th>タイトル</th>
+        <th>投稿日</th>
+        <th>内容</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @diaries.each do |diary| %>
+      <tr>
+        <td><%= diary.title %></td>
+        <td><%= diary.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+        <td><%= diary.body %></td>
+        <td>ナイス⭐︎</td>
+        <td><%= link_to "編集", edit_diary_path(diary) %></td>
+        <td><%= link_to "削除", diary_path(diary), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
