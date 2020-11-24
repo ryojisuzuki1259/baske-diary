@@ -25,7 +25,41 @@ header{
   height: 100px;
   background-color: yellow;
   color: white;
+}
+
+.top-links{
   display: flex;
+}
+
+.tab{
+  display: flex;
+  width: 100%;
+  background-color: red;
+  position: relative;
+  top: 52px;
+}
+
+// タブの位置把握のため仮に色付け　以下
+.tab div:nth-child(1){
+  background-color: #FF66FF;
+}
+
+.tab div:nth-child(2){
+  background-color: #FF66CC;
+}
+
+.tab div:nth-child(3){
+  background-color: #FF6699;
+}
+
+.tab div:nth-child(4){
+  background-color: #FF6666;
+}
+// タブの位置把握のため仮に色付け　以上
+
+.tab-box{
+  width: 25%;
+  text-align: center;
 }
 
 .mypage{
