@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <ul id="tabs">
-    <li><a href="#mypage" class="active">マイページ</a></li>
+    <li><a href="#profile" class="active">プロフィール</a></li>
     <li><a href="#diary" class="">ダイアリー</a></li>
     <li><a href="#skill" class="">スキル</a></li>
     <li><a href="#event" class="">カレンダー</a></li>
@@ -8,19 +8,8 @@
 <% end %>
 
 <div id="tab-contents">
-  <div id="mypage" class="tab">
-    <div>
-      <div>名前</div>
-      <div>所属団体</div>
-      <div>活動エリア</div>
-      <div>自己紹介</div>
-    </div>
-    <div>
-      <div><%= @user.name %></div>
-      <div><%= @user.group %></div>
-      <div><%= @user.prefecture %></div>
-      <div><%= @user.introduction %></div>
-    </div>
+  <div id="profile" class="tab">
+    <%= render "users/profile", user: @user %>
   </div>
 
   <div id = "diary" class="tab">
@@ -33,7 +22,7 @@
 </div>
 
 <script>
-  $('#tab-contents .tab[id != "mypage"]').hide();
+  $('#tab-contents .tab[id != "profile"]').hide();
 
   $('#tabs a').on('click', function(event) {
   $("#tab-contents .tab").hide();

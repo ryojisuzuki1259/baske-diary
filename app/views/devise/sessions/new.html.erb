@@ -18,7 +18,7 @@
     <!--</div>-->
   <%# end %>
   <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-    <div>パスワードの変更は<%= link_to "こちら", new_password_path(resource_name) %>から</div><br />
+    <div>パスワードをお忘れの方は<%= link_to "こちら", new_password_path(resource_name) %>から</div><br />
   <% end %>
 
   <div class="actions">
