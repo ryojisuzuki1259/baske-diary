@@ -1,9 +1,13 @@
 class DiariesController < ApplicationController
   before_action :authenticate_user!
 
-  def show
+  def index
     @user = current_user #find(params[id])だと保存後、ダイアリーのidと同じidでユーザーidを探そうとしてしまう
     @diaries = @user.diaries
+  end
+
+  def show
+    @diary = Diary.find(params[:id])
   end
 
   def new
