@@ -1,14 +1,73 @@
-<div class = "mypage">
-  <div>
-    <div>名前</div>
-    <div>所属団体</div>
-    <div>活動エリア</div>
-    <div>自己紹介</div>
+<% if user_signed_in? %>
+  <ul id="tabs">
+    <li><a href="#mypage" class="active">マイページ</a></li>
+    <li><a href="#diary" class="">ダイアリー</a></li>
+    <li><a href="#skill" class="">スキル</a></li>
+    <li><a href="#event" class="">カレンダー</a></li>
+  </ul>
+<% end %>
+
+<div id="tab-contents">
+  <div id="mypage" class="tab">
+    <div>
+      <div>名前</div>
+      <div>所属団体</div>
+      <div>活動エリア</div>
+      <div>自己紹介</div>
+    </div>
+    <div>
+      <div><%= @user.name %></div>
+      <div><%= @user.group %></div>
+      <div><%= @user.prefecture %></div>
+      <div><%= @user.introduction %></div>
+    </div>
   </div>
-  <div>
-    <div><%=@user.name %></div>
-    <div><%= @user.group %></div>
-    <div><%= @user.prefecture %></div>
-    <div><%= @user.introduction %></div>
+
+  <div id = "diary" class="tab">
+    <p><%= notice %></p>
+    <% if @user == current_user %>
+      <%= link_to "新規登録", new_diary_path %>
+    <% end %>
+    <table>
+      <thead>
+        <tr>
+          <th>タイトル</th>
+          <th>投稿日</th>
+          <th>内容</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @diaries.each do |diary| %>
+        <tr>
+          <td><%= link_to diary.title, diary_path(diary) %></td>
+          <td><%= diary.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+          <td><%= diary.body %></td>
+          <td>ナイス⭐︎</td>
+          <td>
+            <% if @user == current_user %>
+              <%= link_to "編集", edit_diary_path(diary) %>
+            <% end %>
+          </td>
+          <td>
+            <% if @user == current_user %>
+              <%= link_to "削除", diary_path(diary), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
+
+<script>
+  $('#tab-contents .tab[id != "mypage"]').hide();
+
+  $('#tabs a').on('click', function(event) {
+  $("#tab-contents .tab").hide();
+  $("#tabs .active").removeClass("active");
+  $(this).addClass("active");
+  $($(this).attr("href")).show();
+  event.preventDefault();
+  });
+</script>

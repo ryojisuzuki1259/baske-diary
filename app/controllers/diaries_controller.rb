@@ -1,13 +1,12 @@
 class DiariesController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-    @user = current_user #find(params[id])だと保存後、ダイアリーのidと同じidでユーザーidを探そうとしてしまう
-    @diaries = @user.diaries
-  end
-
   def show
+    @user = current_user
+    @diaries = @user.diaries
     @diary = Diary.find(params[:id])
+    @diary_comment = DiaryComment.new
+    @diary_comments = @diary.diary_comments
   end
 
   def new
@@ -20,7 +19,7 @@ class DiariesController < ApplicationController
     if @diary.save
       redirect_to diary_path(@diary), notice: "投稿完了しました！"
     else
-      render 'show'
+      render 'user/show'
     end
   end
 
@@ -33,14 +32,14 @@ class DiariesController < ApplicationController
     if @diary.update(diary_params)
       redirect_to diary_path(@diary), notice: "編集完了しました！"
     else
-      render 'show'
+      render 'user/show'
     end
   end
 
   def destroy
     @diary = Diary.find(params[:id])
     @diary.destroy
-    redirect_to diary_path(@diary)
+    redirect_to user_path(current_user)
   end
 
   private
