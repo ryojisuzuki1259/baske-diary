@@ -2,7 +2,7 @@
   <div class = "top-links">
   <%= link_to "ロゴ", root_path %>
   <% if user_signed_in? %>
-    <%= link_to "トップページ", root_path %>
+    <%= link_to "マイページ", user_path(current_user) %>
     <%= link_to "ユーザー", users_path %>
     <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
   <% else %>
@@ -12,13 +12,6 @@
   <% end %>
   </div>
 
-  <% if user_signed_in? %>
-    <div class = "tab">
-      <div class = "tab-box"><%= link_to "マイページ", user_path(current_user) %></div>
-      <div class = "tab-box"><%= link_to "ダイアリー", diaries_path %></div>
-      <div class = "tab-box"><%= link_to "スキル", skill_path(current_user) %></div>
-      <div class = "tab-box"><%= link_to "カレンダー", event_path(current_user) %></div>
-    </div>
-  <% end %>
+  <%= current_user.name %>
 
 </header>
