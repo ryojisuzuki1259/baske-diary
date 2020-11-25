@@ -15,7 +15,7 @@
   <% if user_signed_in? %>
     <div class = "tab">
       <div class = "tab-box"><%= link_to "マイページ", user_path(current_user) %></div>
-      <div class = "tab-box"><%= link_to "ダイアリー", diary_path(current_user) %></div>
+      <div class = "tab-box"><%= link_to "ダイアリー", diaries_path %></div>
       <div class = "tab-box"><%= link_to "スキル", skill_path(current_user) %></div>
       <div class = "tab-box"><%= link_to "カレンダー", event_path(current_user) %></div>
     </div>

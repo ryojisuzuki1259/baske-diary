@@ -15,3 +15,28 @@
     </div>
   </div>
 </div>
+
+<%= form_with model:[@diary,@diary_comment], url:diary_diary_comments_path(@diary,@diary_comment), local:true do |f| %>
+  <%= f.text_area :body, placeholder: "こちらにコメント入力" %>
+  <%= f.submit "コメントする" %>
+<% end %>
+
+<div>コメント一覧</div>
+<table>
+  <thead>
+    <tr>
+      <th>ユーザー名</th>
+      <th>コメント日時</th>
+      <th>内容</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @diary_comments.each do |diary_comment| %>
+    <tr>
+      <td><%= diary_comment.user.name %></td>
+      <td><%= diary_comment.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+      <td><%= diary_comment.body %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
