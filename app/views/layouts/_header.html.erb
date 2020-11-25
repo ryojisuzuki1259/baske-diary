@@ -12,6 +12,8 @@
   <% end %>
   </div>
 
-  <%= current_user.name %>
+  <% if user_signed_in? %>
+    <%= current_user.name %>
+  <% end %>
 
 </header>

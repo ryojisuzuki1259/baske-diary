@@ -23,7 +23,7 @@
 </div>
 
 <%= form_with model:[@diary,@diary_comment], url:diary_diary_comments_path(@diary,@diary_comment), local:true do |f| %>
-  <%= f.text_area :body, placeholder: "こちらにコメント入力" %>
+  <%= f.text_area :body, placeholder: "こちらに入力" %>
   <%= f.submit "コメントする" %>
 <% end %>
 
