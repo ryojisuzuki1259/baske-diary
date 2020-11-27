@@ -1,0 +1,16 @@
+<div>スキル編集</div>
+
+<div class="skill-form">
+  <div>
+    <div>スキル名</div>
+    <div>習得度</div>
+  </div>
+
+  <div>
+    <%= form_with model:@skill, url:skill_path(@skill), local:true do |f| %>
+      <div><%= f.text_field :name, placeholder: "こちらに入力"%></div>
+      <div><%= f.text_field :level %></div>
+      <div><%= f.submit "保存する" %></div>
+    <% end %>
+  </div>
+</div>
