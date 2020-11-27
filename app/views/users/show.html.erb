@@ -1,0 +1,34 @@
+<% if user_signed_in? %>
+  <ul id="tabs">
+    <li><a href="#profile" class="active">プロフィール</a></li>
+    <li><a href="#diary" class="">ダイアリー</a></li>
+    <li><a href="#skill" class="">スキル</a></li>
+    <li><a href="#event" class="">カレンダー</a></li>
+  </ul>
+<% end %>
+
+<div id="tab-contents">
+  <div id="profile" class="tab">
+    <%= render "users/profile", user: @user %>
+  </div>
+
+  <div id = "diary" class="tab">
+    <%= render "users/diary", user: @user, diaries: @diaries %>
+  </div>
+
+  <div id = "skill" class="tab">
+    <%= render "users/skill", user: @user, skill: @skill, skills: @skills %>
+  </div>
+</div>
+
+<script>
+  $('#tab-contents .tab[id != "profile"]').hide();
+
+  $('#tabs a').on('click', function(event) {
+  $("#tab-contents .tab").hide();
+  $("#tabs .active").removeClass("active");
+  $(this).addClass("active");
+  $($(this).attr("href")).show();
+  event.preventDefault();
+  });
+</script>
