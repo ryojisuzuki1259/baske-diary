@@ -22,7 +22,7 @@
   </div>
 </div>
 
-<%= form_with model:[@diary,@diary_comment], url:diary_diary_comments_path(@diary,@diary_comment), local:true do |f| %>
+<%= form_with model:[@diary,@diary_comment], url:diary_diary_comments_path(@diary,@diary_comment) do |f| %> <!--非同期設定のためlocal: trueを削除-->
   <%= f.text_area :body, placeholder: "こちらに入力" %>
   <%= f.submit "コメントする" %>
 <% end %>
@@ -36,14 +36,8 @@
       <th>内容</th>
     </tr>
   </thead>
-  <tbody>
-  <% @diary_comments.each do |diary_comment| %>
-    <tr>
-      <td><%= diary_comment.user.name %></td>
-      <td><%= diary_comment.created_at.strftime("%Y-%m-%d %H:%M") %></td>
-      <td><%= diary_comment.body %></td>
-    </tr>
-  <% end %>
+  <tbody id="comments_index">
+    <%= render "diary_comments/comments_index", diary_comments: @diary_comments %>
   </tbody>
 </table>
 
