@@ -1,0 +1,8 @@
+<%= form_with url: search_path, method: :get, local: true do |f| %>
+  <%= f.text_field :content %>
+  <%= f.select :column, options_for_select({ "名前" => "name", "活動エリア" => "prefecture" }) %>
+  <%= f.select :method, options_for_select({ "完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial" }) %>
+  <%= f.submit '検索' %>
+<% end %>
+
+<!--options_for_selectでプルダウン形式で入力した内容を送信できるようになる。:content、:column、:methodに入力された内容をsearch_pathに送信。-->
