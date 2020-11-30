@@ -1,0 +1,11 @@
+<% if diary.favorited_by?(current_user) %>
+  <%= link_to diary_favorites_path(diary), method: :delete, remote: true, class: "glyphicon glyphicon-heart" do %>
+    ナイス⭐️ <%= diary.favorites.count %>
+  <% end %>
+<% else %>
+  <%= link_to diary_favorites_path(diary), method: :post, remote: true, class: "glyphicon glyphicon-heart-empty" do %>
+    ナイス⭐️ <%= diary.favorites.count %>
+  <% end %>
+<% end %>
+
+<!--非同期にするためlink_toにremote: trueを追加-->
