@@ -8,6 +8,9 @@ class DiaryCommentsController < ApplicationController
   end
 
   def destroy
+    @comment = DiaryComment.find(params[:id])
+    @comment.destroy
+    redirect_to diary_path(@comment.diary)
   end
 
   private
