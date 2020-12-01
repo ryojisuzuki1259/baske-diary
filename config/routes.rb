@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   resources :skills , except: [:index]
   resources :users, only: [:index, :show]
-  resources :events , except: [:index]
+  resources :events
   get '/search', to: 'search#search'
 
 end

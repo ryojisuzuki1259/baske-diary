@@ -62,9 +62,14 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
+gem 'bootstrap-sass', '~> 3.3.6'
 gem "jquery-rails"
+gem 'jquery-turbolinks'
 
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
+# 71,72行はカレンダー機能のため追加
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'

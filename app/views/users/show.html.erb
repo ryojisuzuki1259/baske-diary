@@ -1,4 +1,4 @@
-<% if user_signed_in? %>
+<% if user_signed_in? %> <!--メニュータブを設定。４aタグ-->
   <ul id="tabs">
     <li><a href="#profile" class="active">プロフィール</a></li>
     <li><a href="#diary" class="">ダイアリー</a></li>
@@ -12,13 +12,20 @@
     <%= render "users/profile", user: @user %>
   </div>
 
-  <div id = "diary" class="tab">
+  <div id="diary" class="tab">
     <%= render "users/diary", user: @user, diaries: @diaries %>
   </div>
 
-  <div id = "skill" class="tab">
+  <div id="skill" class="tab">
     <%= render "users/skill", user: @user, skill: @skill, skills: @skills %>
   </div>
+
+ <% if @user == current_user %>
+ <div id="event" class="tab">
+   <%= render "users/calendar" %>
+ </div>
+ <% end %>
+
 </div>
 
 <script>
