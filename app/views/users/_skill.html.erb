@@ -1,3 +1,4 @@
+<div class="container">
 <% if user == current_user %>
   <%= form_with model:skill, url:skills_path(skill), local:true do |f| %>
     <%= f.label :"習得したいスキル"%>
@@ -6,7 +7,7 @@
   <% end %>
 <% end %>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>番号</th>
@@ -34,3 +35,4 @@
   <% end %>
   </tbody>
 </table>
+</div>
