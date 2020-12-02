@@ -21,13 +21,23 @@
           <%= link_to "削除", diary_path(@diary), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %>
         <% end %>
       </div>
+
+      <button id="comment-btn">コメントフォーム</button>
     </div>
   </div>
 
-  <%= form_with model:[@diary,@diary_comment], url:diary_diary_comments_path(@diary,@diary_comment) do |f| %> <!--非同期設定のためlocal: trueを削除-->
+  <%= form_with model:[@diary,@diary_comment], url:diary_diary_comments_path(@diary,@diary_comment), id:"comment-form" do |f| %> <!--非同期設定のためlocal: trueを削除-->
     <%= f.text_area :body, placeholder: "こちらに入力" %>
     <%= f.submit "コメントする" %>
   <% end %>
+
+  <script> //コメント入力欄が隠れており、ボタンを押すと出てくるコード
+    $('#comment-form').hide();
+
+    $('#comment-btn').click(function() {
+        $('#comment-form').slideToggle();
+    })
+  </script>
 
   <div class="panel panel-default">
     <div class="panel-heading"><strong>コメント一覧</strong></div>
