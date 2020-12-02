@@ -1,14 +1,14 @@
 <% if user_signed_in? %> <!--メニュータブを設定。４aタグ-->
-  <ul id="tabs">
-    <li><a href="#profile" class="active">プロフィール</a></li>
-    <li><a href="#diary" class="">ダイアリー</a></li>
-    <li><a href="#skill" class="">スキル</a></li>
-    <li><a href="#event" class="">カレンダー</a></li>
+  <ul id="tabs" class="nav nav-pills">
+    <li><a href="#profile" class="active" data-toggle="tab">プロフィール</a></li>
+    <li><a href="#diary" class="" data-toggle="tab">ダイアリー</a></li>
+    <li><a href="#skill" class="" data-toggle="tab">スキル</a></li>
+    <li><a href="#event" class="" data-toggle="tab">カレンダー</a></li>
   </ul>
 <% end %>
 
 <div id="tab-contents">
-  <div id="profile" class="tab">
+  <div id="profile" class="tab active">
     <%= render "users/profile", user: @user %>
   </div>
 

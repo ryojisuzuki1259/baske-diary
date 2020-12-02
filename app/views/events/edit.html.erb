@@ -1,6 +1,8 @@
-<div>イベント編集</div>
+<div class="container">
+  <div>イベント編集</div>
 
-<%= render 'form', event: @event %>
+  <%= render 'form', event: @event %>
 
-<%= link_to 'イベント詳細', @event %> |
-<%= link_to 'マイページに戻る', user_path(@user) %>
+  <%= link_to 'イベント詳細', @event %> |
+  <%= link_to 'マイページに戻る', user_path(@user) %>
+</div>
