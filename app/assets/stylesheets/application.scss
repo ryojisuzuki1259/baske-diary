@@ -26,7 +26,10 @@
 header{
   width: 100%;
   height: 100px;
-  background-color: #33CCCC;
+  background-color: #4790BB;
+  color: white;
+}
+header a{
   color: white;
 }
 
@@ -37,8 +40,10 @@ header{
 #tabs{
   display: flex;
   width: 100%;
-  background-color:#CCFFFF;
+  background-color:#B0D7D5;
 }
+
+
 
 // タブの位置把握のため仮に色付け　以下
 #tabs li:nth-child(1){
@@ -86,3 +91,5 @@ header{
 .skill-form{
   display: flex;
 }
+
+
