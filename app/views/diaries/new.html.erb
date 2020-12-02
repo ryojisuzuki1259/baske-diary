@@ -1,16 +1,18 @@
-<div>ダイアリー新規登録</div>
+<div class="container">
+  <div>ダイアリー新規登録</div>
 
-
-<%= form_with model:@diary, local:true do |f| %>
-  <div class="diary-form">
-    <div>
-      <div><%= f.label :"タイトル" %></div>
-      <div><%= f.label :"ダイアリー内容" %></div>
+  <%= form_with model:@diary, local:true do |f| %>
+    <div class="diary-form">
+      <div>
+        <div><%= f.label :"タイトル" %></div>
+        <div><%= f.label :"ダイアリー内容" %></div>
+      </div>
+      <div>
+        <div><%= f.text_field :title %></div>
+        <div><%= f.text_area :body %></div>
+      </div>
     </div>
-    <div>
-      <div><%= f.text_field :title %></div>
-      <div><%= f.text_area :body %></div>
-    </div>
-  </div>
-  <%= f.submit :"保存する"%>
-<% end %>
+    <%= f.submit :"保存する", class:"btn btn-success" %>
+  <% end %>
+  <%= link_to "マイページに戻る", user_path(current_user), class:"btn btn-link" %>
+</div>

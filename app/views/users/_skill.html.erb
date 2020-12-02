@@ -3,7 +3,7 @@
   <%= form_with model:skill, url:skills_path(skill) do |f| %>
     <div><%= f.label :"習得したいスキル"%></div>
     <div><%= f.text_area :name, placeholder: "こちらに入力"%></div>
-    <div><%= f.submit "登録する" %></div>
+    <div><%= f.submit "登録する", class:"btn btn-success" %></div>
   <% end %>
 <% end %>
 
