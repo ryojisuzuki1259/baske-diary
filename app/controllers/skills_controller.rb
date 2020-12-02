@@ -18,11 +18,7 @@ class SkillsController < ApplicationController
 
   def update
     @skill = Skill.find(params[:id])
-    if @skill.update(skill_params)
-      redirect_to user_path(@skill.user)
-    else
-      render 'user/show'
-    end
+    @skill.update(skill_params)
   end
 
   def destroy
