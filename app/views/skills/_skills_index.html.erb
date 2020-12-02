@@ -1,0 +1,17 @@
+<% skills.each do |skill| %>
+    <tr>
+      <td></td>
+      <td><%= skill.name %></td>
+      <td><%= skill.level %> %</td>
+      <td>
+        <% if skill.user == current_user %>
+          <%= link_to "編集", edit_skill_path(skill)%>
+        <% end %>
+      </td>
+      <td>
+        <% if skill.user == current_user %>
+          <%= link_to "削除", skill_path(skill), method: :delete, remote:true, data: {confirm: "本当に削除してもよろしいですか？"}%>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
