@@ -1,6 +1,7 @@
+<% i = 0 %>
 <% skills.each do |skill| %>
     <tr>
-      <td></td>
+      <td><%= i+=1 %></td>
       <td><%= skill.name %></td>
       <td><%= skill.level %> %</td>
       <td>
