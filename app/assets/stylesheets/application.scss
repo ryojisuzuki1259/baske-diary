@@ -110,6 +110,20 @@ header h4 strong {
 }
 // タブの位置把握のため仮に色付け　以上
 
+// homes/top.html.erb
+.site-introduction{
+  display:flex;
+}
+
+.introduction-text{
+  width:400px;
+  margin: 40px;
+}
+
+.swiper-container{
+   width: 1000px;
+   height: 300px;
+}
 
 #profile{
   display: flex;
