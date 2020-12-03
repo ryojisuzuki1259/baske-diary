@@ -22,13 +22,42 @@
   padding: 0;
   box-sizing: border-box;
 }
-// homes/top
+
+body{
+  background-color:#2A5772;
+}
+
+// homes/top.html.erb
 .jumbotron{
   background-color:#B0D7D5;
 }
 
 .jumbotron p{
   line-height: 1.5;
+}
+
+.top-text{
+  display:flex;
+}
+
+.top-text-box{
+  margin:30px;
+}
+
+.site-introduction{
+  display:flex;
+  margin: 20px;
+}
+
+.introduction-text{
+  width:400px;
+  margin: 40px;
+  color: white;
+}
+
+.swiper-container{
+   width: 1000px;
+   height: 400px;
 }
 
 // layouts/_header.html.erb
@@ -76,13 +105,16 @@ header h4 strong {
   margin: 0 10px;
 }
 
+// users/show.html.erb
 #tabs{
   display: flex;
   width: 100%;
   background-color:#B0D7D5;
 }
 
-
+#tab-contents{
+  background-color:white;
+}
 
 // タブの位置把握のため仮に色付け　以下
 #tabs li:nth-child(1){
@@ -109,21 +141,6 @@ header h4 strong {
   text-align: center;
 }
 // タブの位置把握のため仮に色付け　以上
-
-// homes/top.html.erb
-.site-introduction{
-  display:flex;
-}
-
-.introduction-text{
-  width:400px;
-  margin: 40px;
-}
-
-.swiper-container{
-   width: 1000px;
-   height: 300px;
-}
 
 #profile{
   display: flex;
