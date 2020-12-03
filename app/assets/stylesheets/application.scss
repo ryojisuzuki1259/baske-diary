@@ -22,19 +22,58 @@
   padding: 0;
   box-sizing: border-box;
 }
+// homes/top
+.jumbotron{
+  background-color:#B0D7D5;
+}
 
+.jumbotron p{
+  line-height: 1.5;
+}
+
+// layouts/_header.html.erb
 header{
   width: 100%;
   height: 100px;
   background-color: #4790BB;
   color: white;
+  display:flex;
+  justify-content: center;
 }
+
 header a{
   color: white;
 }
 
+header h4{
+  margin: 20px 0 0 40px;
+  width: 500px;
+}
+
+header h4 strong {
+  font-size: 25px;
+}
+
+.logo{
+  margin: auto;
+}
+
+.logo a{
+  width:110px;
+  height:60px;
+  display: block;
+  margin:auto;
+}
+
 .top-links{
   display: flex;
+  justify-content: flex-end;
+  margin: auto 40px;
+  width: 500px;
+}
+
+.top-links-box{
+  margin: 0 10px;
 }
 
 #tabs{
