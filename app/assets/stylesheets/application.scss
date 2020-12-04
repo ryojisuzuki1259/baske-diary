@@ -23,13 +23,24 @@
   box-sizing: border-box;
 }
 
-body{
-  background-color:#2A5772;
+.container {
+    color: #2A5772;
+}
+
+.btn{
+  width:100px;
+  background-color:#4790BB;
+  color:white;
 }
 
 // homes/top.html.erb
 .jumbotron{
   background-color:#B0D7D5;
+  margin-bottom:0;
+}
+
+.jumbotron h1{
+  font-size: 100px;
 }
 
 .jumbotron p{
@@ -42,11 +53,16 @@ body{
 
 .top-text-box{
   margin:30px;
+  color: white;
+  font-family: 'Amatic SC', cursive;
+  display: flex;
+  align-items: center;
 }
 
 .site-introduction{
   display:flex;
-  margin: 20px;
+  padding: 20px;
+  background-color:#2A5772;
 }
 
 .introduction-text{
@@ -55,9 +71,13 @@ body{
   color: white;
 }
 
+.introduction-text p {
+  margin: 20px 0;
+}
+
 .swiper-container{
    width: 1000px;
-   height: 400px;
+   height: 360px;
 }
 
 // layouts/_header.html.erb
@@ -75,7 +95,7 @@ header a{
 }
 
 header h4{
-  margin: 20px 0 0 40px;
+  margin: 20px;
   width: 500px;
 }
 
@@ -105,6 +125,26 @@ header h4 strong {
   margin: 0 10px;
 }
 
+//devise/sessions/new.html.erb
+.login{
+  text-align:center;
+}
+
+.input-form{
+  display:flex;
+  justify-content:center;
+}
+
+.field, .field-box{
+  margin:10px;
+  text-align: left;
+}
+
+.field-body{
+  margin:8px;
+  text-align: left;
+}
+
 // users/show.html.erb
 #tabs{
   display: flex;
@@ -114,6 +154,14 @@ header h4 strong {
 
 #tab-contents{
   background-color:white;
+}
+
+.profile-show{
+  display:flex;
+}
+
+.profile-element-box, .profile-body-box{
+  padding:20px;
 }
 
 // タブの位置把握のため仮に色付け　以下

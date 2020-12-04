@@ -1,14 +1,17 @@
-<div>
-  <div>名前</div>
-  <div>所属団体</div>
-  <div>活動エリア</div>
-  <div>自己紹介</div>
+<div class="container">
+  <div class="profile-show">
+  <div class="profile-element">
+    <div class="profile-element-box">名前</div>
+    <div class="profile-element-box">所属団体</div>
+    <div class="profile-element-box">活動エリア</div>
+    <div class="profile-element-box">自己紹介</div>
+  </div>
+  <div class="profile-body">
+    <div class="profile-body-box"><%= user.name %></div>
+    <div class="profile-body-box"><%= user.group %></div>
+    <div class="profile-body-box"><%= user.prefecture %></div>
+    <div class="profile-body-box"><%= user.introduction %></div>
+  </div>
+  </div>
+  <%= link_to "編集", edit_user_registration_path, class:"btn" %>
 </div>
-<div>
-  <div><%= user.name %></div>
-  <div><%= user.group %></div>
-  <div><%= user.prefecture %></div>
-  <div><%= user.introduction %></div>
-</div>
-
-<%= link_to "編集", edit_user_registration_path %>
