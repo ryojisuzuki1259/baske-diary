@@ -1,6 +1,6 @@
 <div class="container">
     <% if user == current_user %>
-      <%= link_to "新規登録", new_diary_path %>
+      <%= link_to "新規登録", new_diary_path, class:"btn" %>
     <% end %>
     <table class="table">
       <thead>
@@ -19,12 +19,12 @@
           <td class="favorite-btn<%= diary.id %> "><%= render "favorites/favorite-btn", diary: diary %></td> <!--クラス名にdiaryのidを入れている-->
           <td>
             <% if user == current_user %>
-              <%= link_to "編集", edit_diary_path(diary) %>
+              <%= link_to "編集", edit_diary_path(diary), class:"btn" %>
             <% end %>
           </td>
           <td>
             <% if user == current_user %>
-              <%= link_to "削除", diary_path(diary), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %>
+              <%= link_to "削除", diary_path(diary), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class:"btn" %>
             <% end %>
           </td>
         </tr>
