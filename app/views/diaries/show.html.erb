@@ -1,37 +1,42 @@
 <div class="container">
 
-  <p><%= notice %></p>
+  <div class="flash-message"><strong><%= flash[:key] %></strong></div>
 
   <div class="diary-content">
-    <div>
-      <div>タイトル</div>
-      <div>投稿日</div>
-      <div>内容</div>
+    <div class="diary-element">
+      <div class="diary-element-box">タイトル<br><hr class="border1" /></div>
+      <div class="diary-element-box">投稿日<br><hr class="border1" /></div>
+      <div class="diary-element-box">内容<br><hr class="border1" /></div>
     </div>
 
-    <div>
-      <div><%= @diary.title %></div>
-      <div><%= @diary.created_at.strftime("%Y-%m-%d %H:%M") %></div>
-      <div>
-        <%= @diary.body %>
-        <% if @diary.user == current_user %>
-          <%= link_to "編集", edit_diary_path(@diary) %>
-        <% end %>
-        <% if @diary.user == current_user %>
-          <%= link_to "削除", diary_path(@diary), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %>
-        <% end %>
-      </div>
-
-      <button id="comment-btn">コメントフォーム</button>
+    <div class="diary-body">
+      <div class="diary-body-box"><%= @diary.title %></div>
+      <div class="diary-body-box"><%= @diary.created_at.strftime("%Y-%m-%d %H:%M") %></div>
+      <div class="diary-body-box"><%= @diary.body %></div>
     </div>
   </div>
 
+  <div class="diary-content">
+  <% if @diary.user == current_user %>
+    <%= link_to edit_diary_path(@diary) do %>
+      <div class="diary-edit-btn"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 編集</div>
+    <% end %>
+  <% end %>
+  <% if @diary.user == current_user %>
+    <%= link_to diary_path(@diary), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} do %>
+      <div class="diary-delete-btn"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> 削除</div>
+    <% end %>
+  <% end %>
+  </div>
+
+  <button id="comment-btn" class="diary-comment-form btn">コメントフォーム</button>
+
   <%= form_with model:[@diary,@diary_comment], url:diary_diary_comments_path(@diary,@diary_comment), id:"comment-form" do |f| %> <!--非同期設定のためlocal: trueを削除-->
-    <%= f.text_area :body, placeholder: "こちらに入力" %>
-    <%= f.submit "コメントする" %>
+    <%= f.text_area :body, placeholder: "こちらに入力", class:"field-box diary-comment-box" %>
+    <div class="diary-comment-btn"><%= f.submit "コメントする", class:"btn btn-width2" %></div>
   <% end %>
 
-  <script> //コメント入力欄が隠れており、ボタンを押すと出てくるコード
+  <script> //コメント入力欄が隠れており、ボタンを押すと出てくるコード(スライドトグル)
     $('#comment-form').hide();
 
     $('#comment-btn').click(function() {
@@ -39,14 +44,15 @@
     })
   </script>
 
-  <div class="panel panel-default">
-    <div class="panel-heading"><strong>コメント一覧</strong></div>
+  <div class="">
+    <h4 class="comment-index"><strong>コメント一覧</strong></h4>
     <table class="table">
       <thead>
         <tr>
           <th>ユーザー名</th>
           <th>コメント日時</th>
           <th>内容</th>
+          <th></th>
         </tr>
       </thead>
       <tbody id="comments_index">
@@ -55,6 +61,8 @@
     </table>
   </div>
 
-  <%= link_to "マイページに戻る", user_path(@diary.user)%>
+  <%= link_to user_path(@diary.user), class:"back-home" do %>
+    <div><span class="glyphicon glyphicon-home" aria-hidden="true"></span> マイページに戻る</div>
+  <% end %>
 
 </div>

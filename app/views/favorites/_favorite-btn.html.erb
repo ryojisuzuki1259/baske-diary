@@ -1,10 +1,10 @@
 <% if diary.favorited_by?(current_user) %>
   <%= link_to diary_favorites_path(diary), method: :delete, remote: true do %>
-    ナイス<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span><%= diary.favorites.count %>
+    <div class="favorite-btn">いいね<div class="favorite-count"><%= diary.favorites.count %></div></div>
   <% end %>
 <% else %>
   <%= link_to diary_favorites_path(diary), method: :post, remote: true do %>
-    ナイス<%= diary.favorites.count %>
+    <div class="favorite-btn">いいね<div class="favorite-count-none"><%= diary.favorites.count %></div></div>
   <% end %>
 <% end %>
 

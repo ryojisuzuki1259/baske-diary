@@ -31,12 +31,29 @@
   width:100px;
   background-color:#4790BB;
   color:white;
+  border-radius:0;
+}
+
+.btn-width2{
+  width:200px;
+}
+
+.back-home {
+  text-align: end;
+}
+
+.flash-message{
+  color: green;
+  padding: 20px;
+  font-size: 20px;
 }
 
 // homes/top.html.erb
 .jumbotron{
   background-color:#B0D7D5;
   margin-bottom:0;
+  display: flex;
+  justify-content: center;
 }
 
 .jumbotron h1{
@@ -105,6 +122,8 @@ header h4 strong {
 
 .logo{
   margin: auto;
+  position: relative;
+  left: 15px;
 }
 
 .logo a{
@@ -126,7 +145,7 @@ header h4 strong {
 }
 
 //devise/sessions/new.html.erb
-.login{
+.center{
   text-align:center;
 }
 
@@ -145,6 +164,10 @@ header h4 strong {
   text-align: left;
 }
 
+.field-text{
+  margin:10px;
+}
+
 // users/show.html.erb
 #tabs{
   display: flex;
@@ -156,12 +179,135 @@ header h4 strong {
   background-color:white;
 }
 
+// _profile
 .profile-show{
   display:flex;
 }
 
 .profile-element-box, .profile-body-box{
   padding:20px;
+}
+
+.profile-body-box{
+  width: 700px;
+  word-wrap: break-word;
+}
+
+.border1 {
+    border-width: 1px 0 0 0;
+    border-style: solid;
+    border-color: #B0D7D5;
+    margin: 0;
+    width: 100%;
+}
+
+// _diary
+th {
+  color: white;
+    background: #4790BB;
+}
+
+
+td{
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+// white-space は空白文字の扱いを定義する。nowrapで、改行を半角スペースとして表示し、文字列を 1 行にする。
+// overflow は要素からはみ出したコンテンツに指定をする。hiddenで、はみ出し部分を切り、表示しないようにしている。
+// text-overflow ははみ出し領域の表示方法を指定する。ellipsisで、はみ出した際に末尾に「…」が付加される。
+}
+
+.diary-btn-box {
+    margin: 50px auto;
+    /* text-align: center; */
+    width: 100px;
+}
+
+.diary-btn {
+	display: block;
+	position: relative;
+	right: 30px;
+	width: 160px;
+	padding: 0.8em;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	background: #4790BB;
+}
+
+.diary-comment-form {
+	display: block;
+	position: relative;
+	right: 30px;
+	width: 160px;
+	padding: 0.8em;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	background: #4790BB;
+	margin-top: 40px;
+	margin-left: 40px;
+	margin-bottom: 0;
+}
+
+.btn:hover {
+	 cursor: pointer;
+	 text-decoration: none;
+	 color: #fff;
+	 background:#2A5772;
+}
+
+// diaries/new.html.erb
+.field-body-box{
+  width: 500px;
+  height: 300px;
+  word-wrap: break-word;
+}
+
+.field-title-box{
+  width: 300px;
+}
+
+// diaries/show.html.erb
+
+.diary-content{
+  display: flex;
+}
+
+.diary-element{
+  width:100px;
+}
+
+.diary-body{
+  width:700px;
+  word-wrap: break-word;
+}
+
+.diary-element-box, .diary-body-box{
+  padding: 20px;
+}
+
+.diary-comment-box{
+  width: 500px;
+  height: 200px;
+  word-wrap: break-word;
+}
+
+.diary-comment-body{
+  white-space: normal;
+}
+
+.diary-edit-btn{
+  margin:0 20px;
+}
+
+.diary-comment-btn{
+  margin-left: 150px;
+}
+
+.comment-index{
+  margin-top: 40px;
 }
 
 // タブの位置把握のため仮に色付け　以下
@@ -194,13 +340,8 @@ header h4 strong {
   display: flex;
 }
 
-.diary-form{
-  display: flex;
-}
 
-.diary-content{
-  display: flex;
-}
+
 
 .comment-items{
   display: flex;
@@ -210,4 +351,36 @@ header h4 strong {
   display: flex;
 }
 
+// favorites/_favorite-btn.html.erb
 
+.favorite-btn{
+  display:flex;
+}
+
+.favorite-count{
+  border-color: #4790BB;
+  border-style: solid;
+  border-width: 1px;
+  width: 30px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #4790BB;
+  color: white;
+  position: relative;
+  left: 5px;
+  // いいねをログインユーザーが押している時
+}
+
+.favorite-count-none{
+  border-color: #4790BB;
+  border-style: solid;
+  border-width: 1px;
+  width: 30px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: white;
+  color: #4790BB;
+  position: relative;
+  left: 5px;
+  // いいねをログインユーザーが押していない時
+}

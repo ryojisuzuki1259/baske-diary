@@ -1,13 +1,18 @@
 <div class="container">
+  <div class="diary-btn-box">
     <% if user == current_user %>
-      <%= link_to "新規登録", new_diary_path, class:"btn" %>
+      <%= link_to "新規登録", new_diary_path, class:"diary-btn btn" %>
     <% end %>
+  </div>
     <table class="table">
       <thead>
         <tr>
           <th>タイトル</th>
           <th>投稿日</th>
           <th>内容</th>
+          <th></th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -19,12 +24,16 @@
           <td class="favorite-btn<%= diary.id %> "><%= render "favorites/favorite-btn", diary: diary %></td> <!--クラス名にdiaryのidを入れている-->
           <td>
             <% if user == current_user %>
-              <%= link_to "編集", edit_diary_path(diary), class:"btn" %>
+              <%= link_to edit_diary_path(diary) do %>
+                <p><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 編集</p>
+              <% end%>
             <% end %>
           </td>
           <td>
             <% if user == current_user %>
-              <%= link_to "削除", diary_path(diary), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class:"btn" %>
+              <%= link_to diary_path(diary), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} do %>
+                <p><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> 削除</p>
+              <% end %>
             <% end %>
           </td>
         </tr>

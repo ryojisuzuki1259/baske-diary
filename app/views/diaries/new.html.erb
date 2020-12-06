@@ -1,18 +1,21 @@
-<div class="container">
-  <div>ダイアリー新規登録</div>
+<div class="container center">
+
+  <h2>ダイアリー新規登録</h2>
 
   <%= form_with model:@diary, local:true do |f| %>
-    <div class="diary-form">
-      <div>
-        <div><%= f.label :"タイトル" %></div>
-        <div><%= f.label :"ダイアリー内容" %></div>
+    <div class="input-form">
+      <div class="field">
+        <div><%= f.label :"タイトル", class:"field-box" %></div>
+        <div><%= f.label :"ダイアリー内容", class:"field-box" %></div>
       </div>
-      <div>
-        <div><%= f.text_field :title %></div>
-        <div><%= f.text_area :body %></div>
+      <div class="field">
+        <div><%= f.text_field :title, class:"field-box field-title-box" %></div>
+        <div><%= f.text_area :body, class:"field-box field-body-box" %></div>
       </div>
     </div>
-    <%= f.submit :"保存する", class:"btn btn-success" %>
+    <%= f.submit :"保存する", class:"btn" %>
+    <%= link_to user_path(current_user), class:"back-home" do %>
+      <div><span class="glyphicon glyphicon-home" aria-hidden="true"></span> マイページに戻る</div>
+    <% end %>
   <% end %>
-  <%= link_to "マイページに戻る", user_path(current_user), class:"btn btn-link" %>
 </div>
