@@ -1,11 +1,16 @@
 <div class="container">
-<% if user == current_user %>
-  <%= form_with model:skill, url:skills_path(skill) do |f| %>
-    <div><%= f.label :"習得したいスキル"%></div>
-    <div><%= f.text_area :name, placeholder: "こちらに入力"%></div>
-    <div><%= f.submit "登録する", class:"btn" %></div>
-  <% end %>
-<% end %>
+
+  <div class="skil-input-form">
+    <% if user == current_user %>
+      <%= form_with model:skill, url:skills_path(skill) do |f| %>
+        <div class="skll-box" >
+        <%= f.label :"練習中スキル"%>
+        <%= f.text_area :name, placeholder: "こちらに入力", class:"skill-text" %>
+        </div>
+        <div><%= f.submit "新規登録", class:"skill-btn btn" %></div>
+      <% end %>
+    <% end %>
+  </div>
 
 <table class="table">
   <thead>
@@ -13,6 +18,7 @@
       <th>番号</th>
       <th>スキル名</th>
       <th>習得度</th>
+      <th></th>
     </tr>
   </thead>
   <tbody id="skills_index">

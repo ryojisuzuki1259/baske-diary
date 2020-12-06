@@ -27,6 +27,21 @@
     color: #2A5772;
 }
 
+th {
+  color: white;
+    background: #4790BB;
+}
+
+td{
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+// white-space は空白文字の扱いを定義する。nowrapで、改行を半角スペースとして表示し、文字列を 1 行にする。
+// overflow は要素からはみ出したコンテンツに指定をする。hiddenで、はみ出し部分を切り、表示しないようにしている。
+// text-overflow ははみ出し領域の表示方法を指定する。ellipsisで、はみ出した際に末尾に「…」が付加される。
+}
+
 .btn{
   width:100px;
   background-color:#4790BB;
@@ -202,21 +217,6 @@ header h4 strong {
 }
 
 // _diary
-th {
-  color: white;
-    background: #4790BB;
-}
-
-
-td{
-  max-width: 200px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-// white-space は空白文字の扱いを定義する。nowrapで、改行を半角スペースとして表示し、文字列を 1 行にする。
-// overflow は要素からはみ出したコンテンツに指定をする。hiddenで、はみ出し部分を切り、表示しないようにしている。
-// text-overflow ははみ出し領域の表示方法を指定する。ellipsisで、はみ出した際に末尾に「…」が付加される。
-}
 
 .diary-btn-box {
     margin: 50px auto;
@@ -294,7 +294,7 @@ td{
   word-wrap: break-word;
 }
 
-.diary-comment-body{
+.comment-body{
   white-space: normal;
 }
 
@@ -308,6 +308,38 @@ td{
 
 .comment-index{
   margin-top: 40px;
+}
+
+// users/_skill.html.erb
+.skil-input-form {
+  margin: 30px;
+  text-align: center;
+}
+
+.skll-box{
+  margin: 20px;
+}
+
+.skill-text{
+  width: 250px;
+  vertical-align: middle; //　上下の中央揃え
+  margin-left: 20px;
+}
+
+.skill-btn {
+  width: 160px;
+	padding: 0.8em;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	background: #4790BB;
+}
+
+// skills/_skills_index.html.erb
+.skill-update-btn{
+  background-color: white;
+  border-color: white;
+  width: 55px;
 }
 
 // タブの位置把握のため仮に色付け　以下
