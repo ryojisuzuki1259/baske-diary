@@ -1,28 +1,38 @@
 <div class="container">
+  <div class="skill-btn-box">
+    <button id="skill-open-btn" class="skill-btn btn">スキル新規登録</button>
+  </div>
 
-  <div class="skil-input-form">
+  <div id="skill-form" class="skill-input-form">
     <% if user == current_user %>
       <%= form_with model:skill, url:skills_path(skill) do |f| %>
         <div class="skll-box" >
         <%= f.label :"練習中スキル"%>
         <%= f.text_area :name, placeholder: "こちらに入力", class:"skill-text" %>
         </div>
-        <div><%= f.submit "新規登録", class:"skill-btn btn" %></div>
+        <div><%= f.submit "保存する", class:"btn" %></div>
       <% end %>
     <% end %>
   </div>
+  <script> // 入力欄が隠れており、ボタンを押すと出てくるコード(スライドトグル)
+    $('#skill-form').hide();
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>番号</th>
-      <th>スキル名</th>
-      <th>習得度</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody id="skills_index">
-    <%= render "skills/skills_index", skills: skills%>
-  </tbody>
-</table>
+    $('#skill-open-btn').click(function() {
+        $('#skill-form').slideToggle();
+    })
+  </script>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>番号</th>
+        <th>スキル名</th>
+        <th>習得度</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="skills_index">
+      <%= render "skills/skills_index", skills: skills%>
+    </tbody>
+  </table>
 </div>

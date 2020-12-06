@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @diary = Diary.new
     @diaries = @user.diaries
     @skill = Skill.new
     @skills = @user.skills
