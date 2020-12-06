@@ -311,7 +311,7 @@ header h4 strong {
 }
 
 // users/_skill.html.erb
-.skil-input-form {
+.skill-input-form {
   margin: 30px;
   text-align: center;
 }
@@ -336,6 +336,14 @@ header h4 strong {
 }
 
 // skills/_skills_index.html.erb
+
+.skill-btn-box{
+  margin: 50px auto;
+  width: 100px;
+  position: relative;
+  right: 30px;
+}
+
 .skill-update-btn{
   background-color: white;
   border-color: white;

@@ -1,8 +1,6 @@
 <div class="container center">
 
-  <h2>ダイアリー新規登録</h2>
-
-  <%= form_with model:@diary, local:true do |f| %>
+  <%= form_with model:diary, url:diaries_path(diary) , id:"diary-new", local:true do |f| %>
     <div class="input-form">
       <div class="field">
         <div><%= f.label :"タイトル", class:"field-box" %></div>
