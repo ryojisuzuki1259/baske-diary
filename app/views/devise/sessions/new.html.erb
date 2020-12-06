@@ -1,4 +1,4 @@
-<div class="container login">
+<div class="container center">
   <h2>ログイン</h2>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="input-form">
@@ -12,7 +12,7 @@
       </div>
     </div>
     <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-      <div>パスワードをお忘れの方は<%= link_to "こちら", new_password_path(resource_name) %>から</div>
+      <div class="field-text">パスワードをお忘れの方は<%= link_to "こちら", new_password_path(resource_name) %>から</div>
     <% end %>
     <div class="actions">
       <%= f.submit :"ログイン", class:"btn" %>

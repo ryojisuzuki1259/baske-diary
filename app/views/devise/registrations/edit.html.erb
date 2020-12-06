@@ -1,4 +1,4 @@
-<div class="container login">
+<div class="container center">
 
 <h2>プロフィール編集 <%#= resource_name.to_s.humanize %></h2>
 
@@ -40,7 +40,9 @@
   </div>
 <% end %>
 
-<%= link_to "マイページに戻る", :back %>
+<%= link_to :back, class:"back-home" do %>
+  <div><span class="glyphicon glyphicon-home" aria-hidden="true"></span> マイページに戻る</div>
+<% end %>
 
 </div>
 
