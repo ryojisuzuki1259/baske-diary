@@ -1,19 +1,32 @@
 <header>
-  <div class = "top-links">
-  <%= link_to "ロゴ", root_path %>
+
+  <h4>
   <% if user_signed_in? %>
-    <%= link_to "マイページ", user_path(current_user) %>
-    <%= link_to "ユーザー", users_path %>
-    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to "トップページ", root_path %>
-    <%= link_to "新規登録", new_user_registration_path %>
-    <%= link_to "ログイン", new_user_session_path %>
+    ログインユーザー：<strong><%= link_to current_user.name, user_path(current_user) %></strong> さん
   <% end %>
+  </h4>
+
+  <div class="logo">
+    <%= link_to root_path do %>
+      <%= image_tag('logo.png', size: '110x60') %>
+    <% end %>
   </div>
 
+  <div class = "top-links">
   <% if user_signed_in? %>
-    <%= current_user.name %>
+    <div class = "top-links-box">
+      <%= link_to "マイページ", user_path(current_user) %><br>
+      <% if @user != current_user %>
+        (<%= @user.name %>)
+      <% end %>
+    </div>
+    <div class = "top-links-box"><%= link_to "ユーザー", users_path %></div>
+    <div class = "top-links-box"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></div>
+  <% else %>
+    <div class = "top-links-box"><%= link_to "トップページ", root_path %></div>
+    <div class = "top-links-box"><%= link_to "新規登録", new_user_registration_path %></div>
+    <div class = "top-links-box"><%= link_to "ログイン", new_user_session_path %></div>
   <% end %>
+  </div>
 
 </header>

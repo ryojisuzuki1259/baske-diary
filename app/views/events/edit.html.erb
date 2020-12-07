@@ -1,6 +1,16 @@
-<div>イベント編集</div>
+<div class="container center">
 
-<%= render 'form', event: @event %>
+  <h2>イベント編集</h2>
 
-<%= link_to 'イベント詳細', @event %> |
-<%= link_to 'マイページに戻る', user_path(@user) %>
+  <%= render 'form', event: @event %>
+
+  <div class="event-edit-content">
+    <%= link_to @event do %>
+      <div><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> イベント詳細　</div>
+    <% end %>
+
+    <%= link_to user_path(@user), class:"back-home" do %>
+      <div><span class="glyphicon glyphicon-home" aria-hidden="true"></span> マイページに戻る</div>
+    <% end %>
+  </div>
+</div>
