@@ -32,7 +32,7 @@
   <button id="comment-btn" class="diary-comment-form btn">コメントフォーム</button>
 
   <%= form_with model:[@diary,@diary_comment], url:diary_diary_comments_path(@diary,@diary_comment), id:"comment-form" do |f| %> <!--非同期設定のためlocal: trueを削除-->
-    <%= f.text_area :body, placeholder: "こちらに入力", class:"field-box diary-comment-box" %>
+    <%= f.text_area :body, class:"field-box diary-comment-box" %>
     <div class="diary-comment-btn"><%= f.submit "コメントする", class:"btn btn-width2" %></div>
   <% end %>
 

@@ -73,3 +73,5 @@ end
 # 71,72行はカレンダー機能のため追加
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+
+gem 'rails-i18n'
