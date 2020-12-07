@@ -271,20 +271,25 @@ header h4 strong {
 
 // diaries/show.html.erb
 
-.diary-content{
+.diary-content, .event-content{
   display: flex;
 }
 
-.diary-element{
+.event-edit-content{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.diary-element, .event-element{
   width:100px;
 }
 
-.diary-body{
+.diary-body, .event-body{
   width:700px;
   word-wrap: break-word;
 }
 
-.diary-element-box, .diary-body-box{
+.diary-element-box, .diary-body-box, .event-element-box, .event-body-box{
   padding: 20px;
 }
 
@@ -348,6 +353,40 @@ header h4 strong {
   background-color: white;
   border-color: white;
   width: 55px;
+}
+
+//
+#calendar{
+  margin-top: 40px;
+}
+
+.fc-day{
+  height: 100px;
+}
+
+.event-start-date{
+  margin: 10px 0;
+  position: relative;
+  bottom: 5px;
+  left: 10px;
+}
+
+.event-end-date{
+  margin: 10px 0;
+  position: relative;
+  top: 5px;
+  left: 10px;
+}
+
+.diary-body-element{
+  margin-bottom: 65px;
+  margin-top: 13px;
+}
+
+.diary-body-content{
+  width: 300px;
+  height: 75px;
+  word-wrap: break-word;
 }
 
 // タブの位置把握のため仮に色付け　以下

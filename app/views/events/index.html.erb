@@ -1,14 +1,16 @@
+<div class="container">
+
 <p id="notice"><%= notice %></p>
 
-<div>イベント一覧</div>
+<h4><strong>イベント一覧</strong></h4>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Start date</th>
-      <th>End date</th>
+      <th>タイトル</th>
+      <th>内容</th>
+      <th>開始日時</th>
+      <th>終了日時</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,16 +22,30 @@
         <td><%= event.body %></td>
         <td><%= event.start_date.strftime("%Y-%m-%d %H:%M") %></td>
         <td><%= event.end_date.strftime("%Y-%m-%d %H:%M") %></td>
-        <td><%= link_to '詳細 |', event %></td>
-        <td><%= link_to '編集 |', edit_event_path(event) %></td>
-        <td><%= link_to '削除', event, method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } %></td>
+        <td>
+          <%= link_to event do %>
+            <p><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> 詳細</p>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_event_path(event) do %>
+            <p><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 編集</p>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to event, method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } do %>
+            <p><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> 削除</p>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'マイページに戻る', user_path(@user) %>
+<%= link_to user_path(@user), class:"back-home" do %>
+  <div><span class="glyphicon glyphicon-home" aria-hidden="true"></span> マイページに戻る</div>
+<% end %>
 
 <br>
 
-
+</div>
