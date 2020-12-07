@@ -5,15 +5,22 @@
       <div class="profile-element-box">名前<br><hr class="border1" /></div>
       <div class="profile-element-box">所属団体<br><hr class="border1" /></div>
       <div class="profile-element-box">活動エリア<br><hr class="border1" /></div>
+      <div class="profile-element-box">フォロー数|フォロワー数<br><hr class="border1" /></div>
       <div class="profile-element-box">自己紹介<br><hr class="border1" /></div>
     </div>
     <div class="profile-body">
       <div class="profile-body-box"><%= user.name %></div>
-      <div class="profile-body-box"><%= user.group %></div>
+      <div class="profile-body-box"><%= user.organization %></div>
       <div class="profile-body-box"><%= user.prefecture %></div>
+      <div class="profile-body-box">
+        <%= link_to user.followings.count, user_followings_path(user) %> |
+        <%= link_to user.followers.count, user_followers_path(user) %>
+      </div>
       <div class="profile-body-box"><%= user.introduction %></div>
     </div>
   </div>
+
+  <div class="follow-btn"><%= render "users/follow_btn", user: user %></div>
 
   <div class="profile-edit">
     <% if user == current_user %>

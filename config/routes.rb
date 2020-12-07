@@ -8,7 +8,11 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
   end
   resources :skills , except: [:index]
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show] do
+    resource :relationships, only: [:create, :destroy]
+    get 'followings' => 'relationships#followings', as: 'followings'
+    get 'followers' => 'relationships#followers', as: 'followers'
+  end
   resources :events
   get '/search', to: 'search#search'
 

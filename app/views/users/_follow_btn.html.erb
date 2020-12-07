@@ -1,0 +1,12 @@
+
+<% if current_user != user %>
+  <% if current_user.following?(user) %>
+    <%= link_to user_relationships_path(user.id), method: :delete do %>
+      <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span> フォローを外す
+    <% end %>
+  <% else %>
+    <%= link_to user_relationships_path(user.id), method: :post do %>
+      <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> フォローをする
+    <% end %>
+  <% end %>
+<% end %>
