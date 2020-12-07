@@ -2,18 +2,5 @@
   <div class="search-box">
     <%= render "search/search"%>
   </div>
-  <table class="table">
-    <tr>
-      <th>ユーザー名</th>
-      <th>所属団体</th>
-      <th>活動エリア</th>
-    </tr>
-    <% @users.each do |user| %>
-    <tr>
-      <td><%=link_to user.name, user_path(user) %></td>
-      <td><%= user.group %></td>
-      <td><%= user.prefecture %></td>
-    </tr>
-    <% end %>
-  </table>
+    <%= render "users/user_index", users: @users %>
 </div>
