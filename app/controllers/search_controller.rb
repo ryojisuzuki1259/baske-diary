@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
   def search
+    @user = current_user
     @column = params[:column]
     @content = params[:content]
     @method = params[:method] #_searchから送られてきた:column、:content、:methodの中身を変数にそれぞれ代入。
