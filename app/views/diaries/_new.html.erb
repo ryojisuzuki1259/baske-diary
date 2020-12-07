@@ -11,9 +11,6 @@
         <div><%= f.text_area :body, class:"field-box field-body-box" %></div>
       </div>
     </div>
-    <%= f.submit :"保存する", class:"btn" %>
-    <%= link_to user_path(current_user), class:"back-home" do %>
-      <div><span class="glyphicon glyphicon-home" aria-hidden="true"></span> マイページに戻る</div>
-    <% end %>
+    <%= f.submit :"保存する", class:"btn bottom50" %>
   <% end %>
 </div>

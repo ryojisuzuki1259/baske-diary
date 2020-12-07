@@ -2,7 +2,7 @@
 
   <h4>
   <% if user_signed_in? %>
-    <strong><%= link_to current_user.name, user_path(current_user) %></strong> さんのページ
+    ログインユーザー：<strong><%= link_to current_user.name, user_path(current_user) %></strong> さん
   <% end %>
   </h4>
 
@@ -14,7 +14,12 @@
 
   <div class = "top-links">
   <% if user_signed_in? %>
-    <div class = "top-links-box"><%= link_to "マイページ", user_path(current_user) %></div>
+    <div class = "top-links-box">
+      <%= link_to "マイページ", user_path(current_user) %><br>
+      <% if @user != current_user %>
+        (<%= @user.name %>)
+      <% end %>
+    </div>
     <div class = "top-links-box"><%= link_to "ユーザー", users_path %></div>
     <div class = "top-links-box"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></div>
   <% else %>
@@ -23,7 +28,5 @@
     <div class = "top-links-box"><%= link_to "ログイン", new_user_session_path %></div>
   <% end %>
   </div>
-
-
 
 </header>

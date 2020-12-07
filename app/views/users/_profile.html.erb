@@ -1,20 +1,26 @@
 <div class="container">
-  <div class="profile-show">
-  <div class="profile-element">
-    <div class="profile-element-box">名前<br><hr class="border1" /></div>
 
-    <div class="profile-element-box">所属団体<br><hr class="border1" /></div>
-    <div class="profile-element-box">活動エリア<br><hr class="border1" /></div>
-    <div class="profile-element-box">自己紹介<br><hr class="border1" /></div>
+  <div class="profile-show">
+    <div class="profile-element">
+      <div class="profile-element-box">名前<br><hr class="border1" /></div>
+      <div class="profile-element-box">所属団体<br><hr class="border1" /></div>
+      <div class="profile-element-box">活動エリア<br><hr class="border1" /></div>
+      <div class="profile-element-box">自己紹介<br><hr class="border1" /></div>
+    </div>
+    <div class="profile-body">
+      <div class="profile-body-box"><%= user.name %></div>
+      <div class="profile-body-box"><%= user.group %></div>
+      <div class="profile-body-box"><%= user.prefecture %></div>
+      <div class="profile-body-box"><%= user.introduction %></div>
+    </div>
   </div>
-  <div class="profile-body">
-    <div class="profile-body-box"><%= user.name %></div>
-    <div class="profile-body-box"><%= user.group %></div>
-    <div class="profile-body-box"><%= user.prefecture %></div>
-    <div class="profile-body-box"><%= user.introduction %></div>
+
+  <div class="profile-edit">
+    <% if user == current_user %>
+      <%= link_to edit_user_registration_path do %>
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 編集
+      <% end %>
+    <% end %>
   </div>
-  </div>
-  <%= link_to edit_user_registration_path do %>
-    <p><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 編集</p>
-  <% end %>
+
 </div>
