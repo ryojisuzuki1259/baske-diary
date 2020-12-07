@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :group, :prefecture, :introduction])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :group, :prefecture, :introduction]) # アカウント編集の時にカラムを追加
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :organization, :prefecture, :introduction])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :organization, :prefecture, :introduction]) # アカウント編集の時にカラムを追加
   end
 end

@@ -8,7 +8,7 @@
   <% users.each do |user| %>
   <tr>
     <td><%=link_to user.name, user_path(user) %></td>
-    <td><%= user.group %></td>
+    <td><%= user.organization %></td>
     <td><%= user.prefecture %></td>
     <td><%= render "users/follow_btn", user: user %></td>
   </tr>
