@@ -6,4 +6,7 @@ class Diary < ApplicationRecord
   def favorited_by?(user) #ダイアリーに対するいいねのため、diaryモデルに定義する。ビューはuser/show
     favorites.where(user_id: user.id).exists?
   end
+
+  validates :title, presence: true
+  validates :body, presence: true
 end

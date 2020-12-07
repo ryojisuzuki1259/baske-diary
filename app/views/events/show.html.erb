@@ -1,25 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<p>
-  <strong>タイトル:</strong>
-  <%= @event.title %>
-</p>
+  <div id="notice"><strong><%= flash[:key] %></strong></div>
 
-<p>
-  <strong>内容:</strong>
-  <%= @event.body %>
-</p>
+  <div class="event-content">
+    <div class="event-element">
+      <div class="event-element-box">タイトル<br><hr class="border1" /></div>
+      <div class="event-element-box">内容<br><hr class="border1" /></div>
+      <div class="event-element-box">開始日時<br><hr class="border1" /></div>
+      <div class="event-element-box">終了日時<br><hr class="border1" /></div>
+    </div>
 
-<p>
-  <strong>開始日時:</strong>
-  <%= @event.start_date.strftime("%Y-%m-%d %H:%M") %>
-</p>
+    <div class="event-body">
+      <div class="event-body-box"><%= @event.title %></div>
+      <div class="event-body-box"><%= @event.body %></div>
+      <div class="event-body-box"><%= @event.start_date.strftime("%Y-%m-%d %H:%M") %></div>
+      <div class="event-body-box"><%= @event.end_date.strftime("%Y-%m-%d %H:%M") %></div>
+    </div>
+  </div>
 
-<p>
-  <strong>終了日時:</strong>
-  <%= @event.end_date.strftime("%Y-%m-%d %H:%M") %>
-</p>
+  <div class="event-content">
+    <%= link_to edit_event_path(@event) do %>
+      <div class="diary-edit-btn"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 編集</div>
+    <% end %>
 
-<%= link_to '編集する', edit_event_path(@event) %> |
-<%= link_to '削除する', event_path(@event), method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } %> |
-<%= link_to 'マイページに戻る', user_path(@user) %>
+    <%= link_to event_path(@event), method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } do %>
+      <div class="diary-delete-btn"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> 削除</div>
+    <% end %>
+  </div>
+
+  <%= link_to user_path(current_user), class:"back-home" do %>
+    <div><span class="glyphicon glyphicon-home" aria-hidden="true"></span> マイページに戻る</div>
+  <% end %>
+
+</div>
