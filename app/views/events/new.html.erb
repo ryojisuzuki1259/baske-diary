@@ -1,7 +1,10 @@
-<div class="container">
-  <div>スケジュール新規登録</div>
+<div class="container center">
+
+  <h2>スケジュール新規登録</h2>
 
   <%= render 'form', event: @event %>
 
-  <%= link_to 'マイページに戻る', user_path(@user) %>
+  <%= link_to user_path(@user), class:"back-home" do %>
+    <div><span class="glyphicon glyphicon-home" aria-hidden="true"></span> マイページに戻る</div>
+  <% end %>
 </div>

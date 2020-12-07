@@ -1,7 +1,11 @@
 <div class="container">
   <div id="calendar"></div>
-  <%= link_to 'イベント新規作成', new_event_path, class:"btn" %> |
-  <%= link_to 'イベント一覧', events_path, class:"btn" %>
+  <%= link_to events_path do %>
+    <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> イベント一覧
+  <% end %>
+  <div class="skill-btn-box">
+    <%= link_to 'イベント新規作成', new_event_path, class:"skill-btn btn" %>
+  </div>
 </div>
 
 <script>
@@ -64,4 +68,6 @@ $(function () {
         }
     });
 });
+
+
 </script>
