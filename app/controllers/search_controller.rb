@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
   def search
+    # binding.pry
     @user = current_user
     @column = params[:column]
     @content = params[:content]

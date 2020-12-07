@@ -10,7 +10,7 @@
     </div>
     <div class="profile-body">
       <div class="profile-body-box"><%= user.name %></div>
-      <div class="profile-body-box"><%= user.group %></div>
+      <div class="profile-body-box"><%= user.organization %></div>
       <div class="profile-body-box"><%= user.prefecture %></div>
       <div class="profile-body-box">
         <%= link_to user.followings.count, user_followings_path(user) %> |

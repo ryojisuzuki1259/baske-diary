@@ -30,6 +30,16 @@ class User < ApplicationRecord
       else
         User.where('name LIKE ?', '%' + content + '%')
       end
+    elsif column == 'organization'
+      if method == 'perfect'
+        User.where(organization: content)
+      elsif method == 'forward'
+        User.where('organization LIKE ?', content + '%')
+      elsif method == 'backward'
+        User.where('organization LIKE ?', '%' + content)
+      else
+        User.where('organization LIKE ?', '%' + content + '%')
+      end
     else
       if method == 'perfect'
         User.where(prefecture: content)

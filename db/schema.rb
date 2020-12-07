@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2020_12_07_155437) do
     t.datetime "remember_created_at"
     t.string "name", null: false
     t.string "prefecture"
-    t.string "group"
+    t.string "organization"
     t.text "introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
