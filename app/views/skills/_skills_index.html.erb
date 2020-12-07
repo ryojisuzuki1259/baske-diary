@@ -5,7 +5,7 @@
     <td class="comment-body"><%= skill.name %></td>
     <td id="skill-edit<%= skill.id %>">
       <% if skill.user == current_user %>
-        <%= render "skills/skill_edit", skill: skill, user: user %>
+        <%= render "skills/skill_edit", skill: skill %>
       <% else %>
         <%= skill.level %>%
       <% end %>
