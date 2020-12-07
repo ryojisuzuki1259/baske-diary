@@ -19,12 +19,17 @@ class DiariesController < ApplicationController
     if @diary.save
       redirect_to diary_path(@diary), flash: {key: "ダイアリーを投稿しました！"}
     else
-      render 'user/show'
+      @user = current_user
+      @diaries = @user.diaries
+      @skill = Skill.new
+      @skills = @user.skills
+      render 'users/show'
     end
   end
 
   def edit
     @diary = Diary.find(params[:id])
+    @user = current_user
   end
 
   def update
@@ -32,7 +37,8 @@ class DiariesController < ApplicationController
     if @diary.update(diary_params)
       redirect_to diary_path(@diary), flash: {key: "ダイアリーを更新しました！"}
     else
-      render 'user/show'
+      @user = current_user
+      render 'diaries/edit'
     end
   end
 

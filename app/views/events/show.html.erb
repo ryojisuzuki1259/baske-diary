@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div id="notice"><strong><%= notice %></strong></div>
+  <div id="notice"><strong><%= flash[:key] %></strong></div>
 
   <div class="event-content">
     <div class="event-element">
@@ -28,7 +28,7 @@
     <% end %>
   </div>
 
-  <%= link_to user_path(@user), class:"back-home" do %>
+  <%= link_to user_path(current_user), class:"back-home" do %>
     <div><span class="glyphicon glyphicon-home" aria-hidden="true"></span> マイページに戻る</div>
   <% end %>
 

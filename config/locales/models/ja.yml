@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    models:
+      event: イベント
+      diary: ダイアリー
+    attributes:
+      event:
+        title: タイトル
+        body: 内容
+      diary:
+        title: タイトル
+        body: 内容
+
+

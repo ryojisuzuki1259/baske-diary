@@ -8,8 +8,15 @@ class SkillsController < ApplicationController
   def create
     @skill = Skill.new(skill_params)
     @skill.user_id = current_user.id
-    @skill.save
-    @user = @skill.user
+    if @skill.save
+      @user = @skill.user
+    else
+      @user = current_user
+      @diary = Diary.new
+      @diaries = @user.diaries
+      @skills = @user.skills
+      render "users/show"
+    end
   end
 
   def edit
