@@ -17,7 +17,7 @@ class DiariesController < ApplicationController
     @diary = Diary.new(diary_params)
     @diary.user_id = current_user.id
     if @diary.save
-      redirect_to diary_path(@diary), flash: {key: "ダイアリーを投稿しました！"}
+      redirect_to diary_path(@diary), flash: { key: "ダイアリーを投稿しました！" }
     else
       @user = current_user
       @diaries = @user.diaries
@@ -35,7 +35,7 @@ class DiariesController < ApplicationController
   def update
     @diary = Diary.find(params[:id])
     if @diary.update(diary_params)
-      redirect_to diary_path(@diary), flash: {key: "ダイアリーを更新しました！"}
+      redirect_to diary_path(@diary), flash: { key: "ダイアリーを更新しました！" }
     else
       @user = current_user
       render 'diaries/edit'
@@ -49,8 +49,8 @@ class DiariesController < ApplicationController
   end
 
   private
+
   def diary_params
     params.require(:diary).permit(:title, :body)
   end
-
 end

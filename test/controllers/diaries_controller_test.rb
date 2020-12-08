@@ -30,5 +30,4 @@ class DiariesControllerTest < ActionDispatch::IntegrationTest
     get diaries_destroy_url
     assert_response :success
   end
-
 end
