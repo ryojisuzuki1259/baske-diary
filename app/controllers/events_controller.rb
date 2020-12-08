@@ -33,7 +33,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, flash: {key: 'イベントを新規作成しました！'} }
+        format.html { redirect_to @event, flash: { key: 'イベントを新規作成しました！' } }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -48,7 +48,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, flash: {key: 'イベントの内容を更新しました！'} }
+        format.html { redirect_to @event, flash: { key: 'イベントの内容を更新しました！' } }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }
@@ -69,13 +69,14 @@ class EventsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def event_params
-      params.require(:event).permit(:title, :body, :start_date, :end_date, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_event
+    @event = Event.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def event_params
+    params.require(:event).permit(:title, :body, :start_date, :end_date, :user_id)
+  end
 end
