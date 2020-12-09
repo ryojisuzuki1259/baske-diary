@@ -11,11 +11,13 @@ class User < ApplicationRecord
   has_many :events, dependent: :destroy
 
   # 自分がフォローされる（被フォロー）側の関係性
-  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "follower_id",
+                                      dependent: :destroy
   # 被フォロー関係を通じて参照→自分をフォローしている人
   has_many :followers, through: :reverse_of_relationships, source: :following
   # 自分がフォローする（与フォロー）側の関係性
-  has_many :relationships, class_name: "Relationship", foreign_key: "following_id", dependent: :destroy
+  has_many :relationships, class_name: "Relationship", foreign_key: "following_id",
+                           dependent: :destroy
   # 与フォロー関係を通じて参照→自分がフォローしている人
   has_many :followings, through: :relationships, source: :follower
 
@@ -52,8 +54,8 @@ class User < ApplicationRecord
       end
     end
   end
-  #Userモデルを検索するインスタンスメソッドを定義。ビューから送られてきた引数３つによって条件分岐をする。
-  #columnで名前か活動エリアかを分岐、methodで完全一致などの検索方法を分岐、contentでどんなワードなのかを判断。
+  # Userモデルを検索するインスタンスメソッドを定義。ビューから送られてきた引数３つによって条件分岐をする。
+  # columnで名前か活動エリアかを分岐、methodで完全一致などの検索方法を分岐、contentでどんなワードなのかを判断。
 
   def follow(user_id)
     relationships.create(follower_id: user_id)
@@ -66,5 +68,4 @@ class User < ApplicationRecord
   def following?(other_user)
     relationships.find_by(follower_id: other_user.id)
   end
-
 end

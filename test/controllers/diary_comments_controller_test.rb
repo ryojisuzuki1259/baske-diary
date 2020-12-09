@@ -10,5 +10,4 @@ class DiaryCommentsControllerTest < ActionDispatch::IntegrationTest
     get diary_comments_destroy_url
     assert_response :success
   end
-
 end
