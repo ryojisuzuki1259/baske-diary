@@ -1,11 +1,11 @@
 <div class="container">
+  <div class="skill-btn-box">
+    <%= link_to 'イベント新規作成', new_event_path, class:"skill-btn btn" %>
+  </div>
   <div id="calendar"></div>
   <%= link_to events_path do %>
     <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> イベント一覧
   <% end %>
-  <div class="skill-btn-box">
-    <%= link_to 'イベント新規作成', new_event_path, class:"skill-btn btn" %>
-  </div>
 </div>
 
 <script>
@@ -29,8 +29,9 @@ $(function () {
 
             //events: '/events.json', 以下に追加
             $('#calendar').fullCalendar({
-                weekNumbers: false,
-　　　　　　　　  aspectRatio: 3.31,
+        //         weekNumbers: false,
+　　　　　　　　//   aspectRatio: 3.31,
+
                 events: '/events.json',
                 //カレンダー上部を年月で表示させる
                 titleFormat: 'YYYY年 M月',
