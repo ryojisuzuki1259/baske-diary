@@ -17,16 +17,23 @@
   </div>
 
   <div class="diary-content">
-  <% if @diary.user == current_user %>
-    <%= link_to edit_diary_path(@diary) do %>
-      <div class="diary-edit-btn"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 編集</div>
+    <div class="favorite-btn<%= @diary.id %> left20">
+      <% if @diary.user != current_user %>
+        <%= render "favorites/favorite-btn", diary: @diary %>
+      <% else %>
+        いいね　<%= @diary.favorites.count %>
+      <% end %>
+      </div>
+    <% if @diary.user == current_user %>
+      <%= link_to edit_diary_path(@diary) do %>
+        <div class="diary-edit-btn"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 編集</div>
+      <% end %>
     <% end %>
-  <% end %>
-  <% if @diary.user == current_user %>
-    <%= link_to diary_path(@diary), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} do %>
-      <div class="diary-delete-btn"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> 削除</div>
+    <% if @diary.user == current_user %>
+      <%= link_to diary_path(@diary), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} do %>
+        <div class="diary-delete-btn"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> 削除</div>
+      <% end %>
     <% end %>
-  <% end %>
   </div>
 
   <button id="comment-btn" class="diary-comment-form btn">コメントフォーム</button>

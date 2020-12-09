@@ -44,12 +44,18 @@
           <td><%= link_to diary.title, diary_path(diary) %></td>
           <td><%= diary.created_at.strftime("%Y-%m-%d %H:%M") %></td>
           <td><%= diary.body %></td>
-          <td class="favorite-btn<%= diary.id %> "><%= render "favorites/favorite-btn", diary: diary %></td> <!--クラス名にdiaryのidを入れている-->
+          <td class="favorite-btn<%= diary.id %>">
+            <% if user != current_user %>
+              <%= render "favorites/favorite-btn", diary: diary %>
+            <% else %>
+              いいね　<%= diary.favorites.count %>
+            <% end %>
+          </td> <!--クラス名にdiaryのidを入れている-->
           <td>
             <% if user == current_user %>
               <%= link_to edit_diary_path(diary) do %>
                 <p><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 編集</p>
-              <% end%>
+              <% end %>
             <% end %>
           </td>
           <td>

@@ -2,9 +2,9 @@ class DiariesController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @user = current_user
-    @diaries = @user.diaries
+    # @diaries = @user.diaries
     @diary = Diary.find(params[:id])
+    @user = @diary.user
     @diary_comment = DiaryComment.new
     @diary_comments = @diary.diary_comments
   end
