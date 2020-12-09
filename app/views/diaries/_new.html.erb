@@ -1,0 +1,16 @@
+<div class="container center">
+
+  <%= form_with model:diary, url:diaries_path(diary) , id:"diary-new", local:true do |f| %>
+    <div class="input-form">
+      <div class="field">
+        <div><%= f.label :"タイトル", class:"field-box" %></div>
+        <div><%= f.label :"ダイアリー内容", class:"field-box" %></div>
+      </div>
+      <div class="field">
+        <div><%= f.text_field :title, class:"field-box field-title-box" %></div>
+        <div><%= f.text_area :body, class:"field-box field-body-box" %></div>
+      </div>
+    </div>
+    <%= f.submit :"保存する", class:"btn bottom50" %>
+  <% end %>
+</div>

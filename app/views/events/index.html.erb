@@ -1,0 +1,51 @@
+<div class="container">
+
+<div id="notice"><strong><%= flash[:key] %></strong></div>
+
+<h4><strong>イベント一覧</strong></h4>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>内容</th>
+      <th>開始日時</th>
+      <th>終了日時</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.title %></td>
+        <td><%= event.body %></td>
+        <td><%= event.start_date.strftime("%Y-%m-%d %H:%M") %></td>
+        <td><%= event.end_date.strftime("%Y-%m-%d %H:%M") %></td>
+        <td>
+          <%= link_to event do %>
+            <p><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> 詳細</p>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_event_path(event) do %>
+            <p><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 編集</p>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to event, method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } do %>
+            <p><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> 削除</p>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to user_path(@user), class:"back-home" do %>
+  <div><span class="glyphicon glyphicon-home" aria-hidden="true"></span> マイページに戻る</div>
+<% end %>
+
+<br>
+
+</div>

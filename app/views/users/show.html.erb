@@ -1,0 +1,57 @@
+<% if user_signed_in? %> <!--メニュータブを設定-->
+  <ul id="tabs" class="nav nav-tabs">
+    <li>
+      <a href="#profile" class="active" data-toggle="tab">
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> プロフィール
+      </a>
+    </li>
+    <li>
+      <a href="#diary" class="" data-toggle="tab">
+        <span class="glyphicon glyphicon-book" aria-hidden="true"></span> ダイアリー
+      </a>
+    </li>
+    <li>
+      <a href="#skill" class="" data-toggle="tab">
+        <span class="glyphicon glyphicon-fire" aria-hidden="true"></span> スキル
+      </a>
+    </li>
+    <li>
+      <a href="#event" class="" data-toggle="tab">
+        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> カレンダー
+      </a>
+    </li>
+  </ul>
+<% end %>
+
+<div id="tab-contents">
+  <div id="profile" class="tab">
+    <%= render "users/profile", user: @user %>
+  </div>
+
+  <div id="diary" class="tab">
+    <%= render "users/diary", user: @user, diaries: @diaries, diary: @diary %>
+  </div>
+
+  <div id="skill" class="tab">
+    <%= render "users/skill", user: @user, skill: @skill, skills: @skills %>
+  </div>
+
+ <% if @user == current_user %>
+ <div id="event" class="tab">
+   <%= render "users/calendar" %>
+ </div>
+ <% end %>
+
+</div>
+
+<script>
+  $('#tab-contents .tab[id != "profile"]').hide();
+
+  $('#tabs a').on('click', function(event) {
+  $("#tab-contents .tab").hide();
+  $("#tabs .active").removeClass("active");
+  $(this).addClass("active");
+  $($(this).attr("href")).show();
+  event.preventDefault();
+  });
+</script>

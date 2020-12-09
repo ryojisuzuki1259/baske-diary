@@ -1,0 +1,18 @@
+<% diary_comments.each do |diary_comment| %>
+  <tr>
+    <td><%= diary_comment.user.name %></td>
+    <td><%= diary_comment.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+    <td class="comment-body"><%= diary_comment.body %></td>
+    <td>
+      <% if current_user == diary_comment.user %>
+        <%= link_to diary_diary_comment_path(diary_comment.diary, diary_comment),
+           method: :delete, remote: true, data: {confirm: "本当に削除してもよろしいですか？"} do %>
+          <p><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> 削除</p>
+        <% end %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
+
+<!--非同期設定でjsファイルからrenderさせないといけないので部分テンプレート化させる必要がある-->
+<!--コメント削除の非同期は上記のlink_to "削除"にremote: trueを追加する-->

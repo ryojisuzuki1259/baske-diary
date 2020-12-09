@@ -1,0 +1,58 @@
+
+<div class="jumbotron">
+  <div class="top-text">
+    <div class="top-text-box"><h1>Baske Diary</h1></div>
+    <div class="top-text-box">
+      <p>
+      このサイトでは<br>
+       あなたのバスケットボールに関する情報を管理し<br>
+       スキルアップ向上をお手伝いいたします
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="site-introduction">
+<div class="introduction-text">
+  <h1>できること</h1>
+  <p>試合や練習で学んだこと、感じたことを記録できる<br>文字に起こすことで現状の課題が明確に！</p>
+  <p>練習しているスキルをリスト化<br>どれくらい習得できたか管理できる</p>
+  <p>カレンダーで試合や練習日程の管理</p>
+</div>
+<div class="swiper-container">
+   <!-- メイン表示部分 -->
+   <div class="swiper-wrapper">
+     <!-- 各スライド -->
+     <div class="swiper-slide"><img src="/assets/ダイアリーサンプル.png" alt style="width: 900px; height: 400px;"></div>
+     <div class="swiper-slide"><img src="/assets/スキルサンプル.png" alt style="width: 900px; height: 400px;"></div>
+     <div class="swiper-slide"><img src="/assets/カレンダーサンプル.png" alt style="width: 900px; height: 400px;"></div>
+   </div>
+   <!-- ナビケーション -->
+   <div class="swiper-button-prev"></div>
+   <div class="swiper-button-next"></div>
+   <div class="swiper-pagination"></div>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.3.7/js/swiper.min.js"></script>
+<script>
+    // var mySwiper = new Swiper('.swiper-container');
+    var mySwiper = new Swiper ('.swiper-container', {
+      loop: true,         //画像のループ
+      effect: 'slide',    //切り替わるときのアニメーション
+      speed: 3000,        //画像の切替スピード
+      autoplay: {         //自動で動かす
+        delay: 3000,
+        disableOnInteraction: true
+      },
+      pagination: {        //ページネーション
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
+      },
+      navigation: {        //ナビケーション
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+</script>

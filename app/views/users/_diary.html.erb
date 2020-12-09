@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="diary-btn-box">
+    <% if user == current_user %>
+      <button id="diary-open-btn" class="diary-btn btn">ダイアリー新規登録</button>
+    <% end %>
+  </div>
+
+  <% if diary.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= diary.errors.count %> 件のエラーが発生:</h2>
+
+      <ul>
+      <% diary.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= render "diaries/new", diary: @diary %>
+
+  <script> //入力欄が隠れており、ボタンを押すと出てくるコード(スライドトグル)
+    $('#diary-new').hide();
+
+    $('#diary-open-btn').click(function() {
+        $('#diary-new').slideToggle();
+    })
+  </script>
+
+    <table class="table t-top">
+      <thead>
+        <tr>
+          <th>タイトル</th>
+          <th>投稿日</th>
+          <th>内容</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% diaries.each do |diary| %>
+        <tr>
+          <td><%= link_to diary.title, diary_path(diary) %></td>
+          <td><%= diary.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+          <td><%= diary.body %></td>
+          <td class="favorite-btn<%= diary.id %>">
+            <% if user != current_user %>
+              <%= render "favorites/favorite-btn", diary: diary %>
+            <% else %>
+              いいね　<%= diary.favorites.count %>
+            <% end %>
+          </td> <!--クラス名にdiaryのidを入れている-->
+          <td>
+            <% if user == current_user %>
+              <%= link_to edit_diary_path(diary) do %>
+                <p><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 編集</p>
+              <% end %>
+            <% end %>
+          </td>
+          <td>
+            <% if user == current_user %>
+              <%= link_to diary_path(diary), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} do %>
+                <p><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> 削除</p>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>
