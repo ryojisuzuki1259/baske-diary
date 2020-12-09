@@ -9,9 +9,13 @@ class SkillsController < ApplicationController
     @skill = Skill.new(skill_params)
     @skill.user_id = current_user.id
     if @skill.save
-      redirect_to user_path(@skill.user), notice: "登録しました！"
+      @user = @skill.user
     else
-      render 'user/show'
+      @user = current_user
+      @diary = Diary.new
+      @diaries = @user.diaries
+      @skills = @user.skills
+      render "users/show"
     end
   end
 
@@ -21,20 +25,17 @@ class SkillsController < ApplicationController
 
   def update
     @skill = Skill.find(params[:id])
-    if @skill.update(skill_params)
-      redirect_to user_path(@skill.user)
-    else
-      render 'user/show'
-    end
+    @skill.update(skill_params)
   end
 
   def destroy
     @skill = Skill.find(params[:id])
     @skill.destroy
-    redirect_to user_path(current_user)
+    @user = @skill.user
   end
 
   private
+
   def skill_params
     params.require(:skill).permit(:name, :level)
   end

@@ -1,16 +1,33 @@
-<div>ダイアリー編集</div>
+<div class="container center">
 
+  <h2>ダイアリー編集</h2>
 
-<%= form_with model:@diary, local:true do |f| %>
-  <div class="diary-form">
-    <div>
-      <div><%= f.label :"タイトル" %></div>
-      <div><%= f.label :"ダイアリー内容" %></div>
+  <% if @diary.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @diary.errors.count %> 件のエラーが発生:</h2>
+
+      <ul>
+      <% @diary.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
     </div>
-    <div>
-      <div><%= f.text_field :title %></div>
-      <div><%= f.text_field :body %></div>
+  <% end %>
+
+  <%= form_with model:@diary, local:true do |f| %>
+    <div class="input-form">
+      <div class="field">
+        <div><%= f.label :"タイトル", class:"field-box" %></div>
+        <div><%= f.label :"ダイアリー内容", class:"field-box" %></div>
+      </div>
+      <div class="field">
+        <div><%= f.text_field :title, class:"field-box field-title-box" %></div>
+        <div><%= f.text_area :body, class:"field-box field-body-box" %></div>
+      </div>
     </div>
-  </div>
-  <%= f.submit :"更新する"%>
-<% end %>
+    <%= f.submit :"更新する", class:"btn" %>
+    <%= link_to user_path(current_user), class:"back-home" do %>
+      <div><span class="glyphicon glyphicon-home" aria-hidden="true"></span> マイページに戻る</div>
+    <% end %>
+  <% end %>
+</div>

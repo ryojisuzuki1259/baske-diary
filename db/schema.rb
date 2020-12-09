@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_23_060632) do
+ActiveRecord::Schema.define(version: 2020_12_07_155437) do
 
   create_table "diaries", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -30,12 +30,10 @@ ActiveRecord::Schema.define(version: 2020_11_23_060632) do
 
   create_table "events", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.string "title", null: false
-    t.text "body"
-    t.datetime "start", null: false
-    t.datetime "end", null: false
-    t.boolean "disp_flag", default: true
-    t.string "allday"
+    t.string "title"
+    t.string "body"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,6 +41,13 @@ ActiveRecord::Schema.define(version: 2020_11_23_060632) do
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "diary_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "following_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -63,7 +68,7 @@ ActiveRecord::Schema.define(version: 2020_11_23_060632) do
     t.datetime "remember_created_at"
     t.string "name", null: false
     t.string "prefecture"
-    t.string "group"
+    t.string "organization"
     t.text "introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

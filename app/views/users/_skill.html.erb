@@ -1,36 +1,40 @@
-<% if user == current_user %>
-  <%= form_with model:skill, url:skills_path(skill), local:true do |f| %>
-    <%= f.label :"習得したいスキル"%>
-    <%= f.text_field :name, placeholder: "こちらに入力"%>
-    <%= f.submit "登録する" %>
-  <% end %>
-<% end %>
+<div class="container">
+  <div class="skill-btn-box">
+    <% if user == current_user %>
+      <button id="skill-open-btn" class="skill-btn btn">スキル新規登録</button>
+    <% end %>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>番号</th>
-      <th>スキル名</th>
-      <th>習得度</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% skills.each do |skill| %>
-    <tr>
-      <td></td>
-      <td><%= skill.name %></td>
-      <td><%= skill.level %> %</td>
-      <td>
-        <% if skill.user == current_user %>
-          <%= link_to "編集", edit_skill_path(skill)%>
-        <% end %>
-      </td>
-      <td>
-        <% if skill.user == current_user %>
-          <%= link_to "削除", skill_path(skill), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}%>
-        <% end %>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+  <div class="container center">
+    <% if user == current_user %>
+      <%= form_with model:skill, url:skills_path(skill), id:"skill-form" do |f| %>
+        <div class="skll-box" >
+        <%= f.label :"練習中スキル"%>
+        <%= f.text_area :name, class:"skill-text" %>
+        </div>
+        <div><%= f.submit "保存する", class:"btn bottom50" %></div>
+      <% end %>
+    <% end %>
+  </div>
+  <script> // 入力欄が隠れており、ボタンを押すと出てくるコード(スライドトグル)
+    $('#skill-form').hide();
+
+    $('#skill-open-btn').click(function() {
+        $('#skill-form').slideToggle();
+    })
+  </script>
+
+  <table class="table t-top">
+    <thead>
+      <tr>
+        <th>番号</th>
+        <th>スキル名</th>
+        <th>習得度</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="skills_index">
+      <%= render "skills/skills_index", skills: skills %>
+    </tbody>
+  </table>
+</div>
