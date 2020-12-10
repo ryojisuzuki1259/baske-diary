@@ -79,6 +79,18 @@ td{
   padding-left: 20px;
 }
 
+.p-left60{
+  padding-left: 60px;
+}
+
+.p-left120{
+  padding-left: 120px;
+}
+
+.underline{
+  background: linear-gradient(transparent 50%, #B0D7D5 90%);
+}
+
 // homes/top.html.erb
 .jumbotron{
   background-color:#B0D7D5;
@@ -121,7 +133,10 @@ td{
 }
 
 .introduction-text p {
-  margin: 20px 0;
+  margin: 40px 0;
+  font-size: 16px;
+  width: 500px;
+  line-height: 1.3;
 }
 
 .swiper-container{
