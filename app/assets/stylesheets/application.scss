@@ -23,6 +23,9 @@
   box-sizing: border-box;
 }
 
+body{
+}
+
 .container {
   color: #2A5772;
   margin-bottom: 50px;
@@ -82,14 +85,15 @@ td{
   margin-bottom: 0;
   display: flex;
   justify-content: center;
+  height: 290px;
 }
 
 .jumbotron h1{
-  font-size: 100px;
+  font-size: 150px;
 }
 
 .jumbotron p{
-  line-height: 1.5;
+  line-height: 2;
 }
 
 .top-text{
