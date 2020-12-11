@@ -27,46 +27,37 @@
     })
   </script>
 
-    <table class="table t-top">
-      <thead>
-        <tr>
-          <th>タイトル</th>
-          <th>投稿日</th>
-          <th>内容</th>
-          <th></th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% diaries.each do |diary| %>
-        <tr>
-          <td><%= link_to diary.title, diary_path(diary) %></td>
-          <td><%= diary.created_at.strftime("%Y-%m-%d %H:%M") %></td>
-          <td><%= diary.body %></td>
-          <td class="favorite-btn<%= diary.id %>">
+  <div class="diary-show">
+    <% diaries.each do |diary| %>
+      <div class="diary-box">
+        <h4><%= link_to diary.title, diary_path(diary), :style=>"color:white;" %></h4>
+        <div class="diary-box-body"><%= diary.body %></div>
+        <div class="diary-box-link">
+          <div><%= diary.created_at.strftime("%Y-%m-%d %H:%M") %></div>
+          <div class="favorite-btn<%= diary.id %>">
             <% if user != current_user %>
               <%= render "favorites/favorite-btn", diary: diary %>
             <% else %>
-              いいね　<%= diary.favorites.count %>
+              いいね<%= diary.favorites.count %>
             <% end %>
-          </td> <!--クラス名にdiaryのidを入れている-->
-          <td>
+          </div>
+          <div>コメント<%= diary.diary_comments.count %>件</div>
+          <div>
             <% if user == current_user %>
               <%= link_to edit_diary_path(diary) do %>
-                <p><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 編集</p>
+                <div><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 編集</div>
               <% end %>
             <% end %>
-          </td>
-          <td>
+          </div>
+          <div>
             <% if user == current_user %>
               <%= link_to diary_path(diary), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} do %>
-                <p><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> 削除</p>
+                <div><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> 削除</div>
               <% end %>
             <% end %>
-          </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

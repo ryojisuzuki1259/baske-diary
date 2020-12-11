@@ -308,6 +308,59 @@ header h4 strong {
 	 background:#2A5772;
 }
 
+.diary-show {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.diary-box {
+  height: 150px;
+  width: 550px;
+  border: 1rem solid;
+  border-color: #4790BB;
+  margin: 10px;
+}
+
+.diary-box>h4 {
+  border-bottom: 1px solid;
+  border-color: #4790BB;
+  background-color: #4790BB;
+  margin: 0;
+  padding: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.diary-box-body{
+  height: 70px;
+  padding: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: normal;
+  display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.diary-box-link{
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid;
+  border-color: #4790BB;
+  align-items: center;
+  height: 30px;
+  padding: 5px;
+}
+
+.diary-box-link > :first-child{
+  margin-right: auto;
+}
+
+.diary-box-link div {
+  margin-right: 5px;
+}
+
 // diaries/new.html.erb
 .field-body-box{
   width: 500px;
