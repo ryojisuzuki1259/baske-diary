@@ -4,9 +4,9 @@
 
   <div class="diary-content">
     <div class="diary-element">
-      <div class="diary-element-box">タイトル<br><hr class="border1" /></div>
-      <div class="diary-element-box">投稿日<br><hr class="border1" /></div>
-      <div class="diary-element-box">内容<br><hr class="border1" /></div>
+      <div class="diary-element-box"><span class="underline2">タイトル</span></div>
+      <div class="diary-element-box"><span class="underline2">投稿日</span></div>
+      <div class="diary-element-box"><span class="underline2">内容</span></div>
     </div>
 
     <div class="diary-body">
@@ -36,12 +36,16 @@
     <% end %>
   </div>
 
+  <div class="diary-btn-box">
   <button id="comment-btn" class="diary-comment-form btn">コメントフォーム</button>
+  </div>
 
+  <div class="container center">
   <%= form_with model:[@diary,@diary_comment], url:diary_diary_comments_path(@diary,@diary_comment), id:"comment-form" do |f| %> <!--非同期設定のためlocal: trueを削除-->
     <%= f.text_area :body, class:"field-box diary-comment-box" %>
     <div class="diary-comment-btn"><%= f.submit "コメントする", class:"btn btn-width2" %></div>
   <% end %>
+  </div>
 
   <script> // 入力欄が隠れており、ボタンを押すと出てくるコード(スライドトグル)
     $('#comment-form').hide();
@@ -52,16 +56,8 @@
   </script>
 
   <div class="">
-    <h4 class="comment-index"><strong>コメント一覧</strong></h4>
+    <h4 class="comment-index"><strong>コメント<%= @diary_comments.count %>件</strong></h4>
     <table class="table">
-      <thead>
-        <tr>
-          <th>ユーザー名</th>
-          <th>コメント日時</th>
-          <th>内容</th>
-          <th></th>
-        </tr>
-      </thead>
       <tbody id="comments_index">
         <%= render "diary_comments/comments_index", diary_comments: @diary_comments %>
       </tbody>

@@ -1,8 +1,8 @@
 <% diary_comments.each do |diary_comment| %>
   <tr>
     <td><%= diary_comment.user.name %></td>
-    <td><%= diary_comment.created_at.strftime("%Y-%m-%d %H:%M") %></td>
     <td class="comment-body"><%= diary_comment.body %></td>
+    <td><%= diary_comment.created_at.strftime("%Y-%m-%d %H:%M") %></td>
     <td>
       <% if current_user == diary_comment.user %>
         <%= link_to diary_diary_comment_path(diary_comment.diary, diary_comment),

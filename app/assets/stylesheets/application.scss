@@ -296,8 +296,6 @@ header h4 strong {
 	text-decoration: none;
 	color: #fff;
 	background: #4790BB;
-	margin-top: 40px;
-	margin-left: 40px;
 	margin-bottom: 0;
 }
 
@@ -404,14 +402,11 @@ header h4 strong {
 
 .comment-body{
   white-space: normal;
+  width: 700px;
 }
 
 .diary-edit-btn{
   margin: 0 20px;
-}
-
-.diary-comment-btn{
-  margin-left: 150px;
 }
 
 .comment-index{
