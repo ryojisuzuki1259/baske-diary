@@ -48,10 +48,10 @@
   $('#tab-contents .tab[id != "profile"]').hide();
 
   $('#tabs a').on('click', function(event) {
-  $("#tab-contents .tab").hide();
-  $("#tabs .active").removeClass("active");
-  $(this).addClass("active");
-  $($(this).attr("href")).show();
-  event.preventDefault();
+    $("#tab-contents .tab").hide();
+    $("#tabs .active").removeClass("active");
+    $(this).addClass("active");
+    $($(this).attr("href")).fadeIn();
+    event.preventDefault();
   });
 </script>
