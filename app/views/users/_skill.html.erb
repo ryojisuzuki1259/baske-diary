@@ -8,8 +8,8 @@
   <div class="container center">
     <% if user == current_user %>
       <%= form_with model:skill, url:skills_path(skill), id:"skill-form" do |f| %>
-        <div class="skll-box" >
-        <%= f.label :"練習中スキル"%>
+        <div class="skill-box" >
+        <%= f.label :"練習中スキル(20字以内)"%>
         <%= f.text_area :name, class:"skill-text" %>
         </div>
         <div><%= f.submit "保存する", class:"btn bottom50" %></div>
@@ -24,17 +24,7 @@
     })
   </script>
 
-  <!--<table class="table t-top">-->
-    <!--<thead>-->
-    <!--  <tr>-->
-    <!--    <th>番号</th>-->
-    <!--    <th>スキル名</th>-->
-    <!--    <th>習得度</th>-->
-    <!--    <th></th>-->
-    <!--  </tr>-->
-    <!--</thead>-->
-    <div id="skills_index">
-      <%= render "skills/skills_index", skills: skills %>
-    </div>
-  <!--</table>-->
+  <div id="skills_index">
+    <%= render "skills/skills_index", skills: skills %>
+  </div>
 </div>

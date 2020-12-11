@@ -3,7 +3,7 @@
   <div class="skill-index">
     <div><%= i+=1 %></div>
     <div class="skill-index-body"><%= skill.name %></div>
-    <div id="skill-edit<%= skill.id %>">
+    <div id="skill-edit<%= skill.id %>" class="skill-edit-box">
       <% if skill.user == current_user %>
         <%= render "skills/skill_edit", skill: skill %>
       <% else %>
@@ -20,23 +20,3 @@
   </div>
 <% end %>
 
-<!--<%# skills.each do |skill| %>-->
-<!--  <div class="skill-index">-->
-<!--    <%#= i+=1 %>-->
-<!--    <div class="skill-index-body"><%#= skill.name %></div>-->
-<!--    <div id="skill-edit<%#= skill.id %>">-->
-<!--      <%# if skill.user == current_user %>-->
-<!--        <%#= render "skills/skill_edit", skill: skill %>-->
-<!--      <%# else %>-->
-<!--        <%#= skill.level %>-->
-<!--      <%# end %>-->
-<!--    </div>-->
-<!--    <div>-->
-<!--      <%# if skill.user == current_user %>-->
-<!--        <%#= link_to skill_path(skill), method: :delete, remote:true, data: {confirm: "本当に削除してもよろしいですか？"} do %>-->
-<!--          <p><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> 削除</p>-->
-<!--        <%# end %>-->
-<!--      <%# end %>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--<%# end %>-->

@@ -1,6 +1,6 @@
  <% diaries.each do |diary| %>
     <div class="diary-box">
-      <h4><%= link_to diary.title, diary_path(diary), :style=>"color:white;" %></h4>
+      <h4><strong><%= link_to diary.title, diary_path(diary), :style=>"color:white;" %></strong></h4>
       <div class="diary-box-body"><%= diary.body %></div>
       <div class="diary-box-link">
         <div><%= diary.created_at.strftime("%Y-%m-%d %H:%M") %></div>
