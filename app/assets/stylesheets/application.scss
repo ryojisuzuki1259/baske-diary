@@ -309,14 +309,15 @@ header h4 strong {
 .diary-show {
   display: flex;
   flex-wrap: wrap;
+  width: 1200px;
 }
 
 .diary-box {
   height: 150px;
-  width: 550px;
+  width: 500px;
   border: 1rem solid;
   border-color: #4790BB;
-  margin: 10px;
+  margin: 20px 33px;
 }
 
 .diary-box>h4 {

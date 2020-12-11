@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @diary = Diary.new
-    @diaries = @user.diaries
+    @diaries = @user.diaries.order(id: "DESC")
     @skill = Skill.new
     @skills = @user.skills
   end

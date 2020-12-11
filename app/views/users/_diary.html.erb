@@ -27,37 +27,7 @@
     })
   </script>
 
-  <div class="diary-show">
-    <% diaries.each do |diary| %>
-      <div class="diary-box">
-        <h4><%= link_to diary.title, diary_path(diary), :style=>"color:white;" %></h4>
-        <div class="diary-box-body"><%= diary.body %></div>
-        <div class="diary-box-link">
-          <div><%= diary.created_at.strftime("%Y-%m-%d %H:%M") %></div>
-          <div class="favorite-btn<%= diary.id %>">
-            <% if user != current_user %>
-              <%= render "favorites/favorite-btn", diary: diary %>
-            <% else %>
-              いいね<%= diary.favorites.count %>
-            <% end %>
-          </div>
-          <div>コメント<%= diary.diary_comments.count %>件</div>
-          <div>
-            <% if user == current_user %>
-              <%= link_to edit_diary_path(diary) do %>
-                <div><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 編集</div>
-              <% end %>
-            <% end %>
-          </div>
-          <div>
-            <% if user == current_user %>
-              <%= link_to diary_path(diary), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} do %>
-                <div><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> 削除</div>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    <% end %>
+  <div class="diary-show" id="diary_destroy_btn">
+    <%= render "diaries/diary_destroy", user: user, diaries: diaries %>
   </div>
 </div>
