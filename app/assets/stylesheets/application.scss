@@ -339,6 +339,7 @@ header h4 strong {
   display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+  white-space: pre-wrap;
 }
 
 .diary-box-link{
@@ -413,6 +414,10 @@ header h4 strong {
   margin-top: 40px;
 }
 
+.diary-body-box{
+  white-space: pre-wrap;
+}
+
 // users/_skill.html.erb
 
 .skll-box{
@@ -445,9 +450,50 @@ header h4 strong {
 }
 
 .skill-update-btn{
-  background-color: white;
-  border-color: white;
-  width: 55px;
+  background-color: #4790BB;
+  border-color: #4790BB;
+  width: 20px;
+  border-radius: 50%;
+  height: 20px;
+  border-style: solid;
+  text-align: center;
+  position: relative;
+  top: 2px;
+  color: white;
+}
+
+.skill-index{
+  border: 1rem solid;
+  height: 200px;
+  width: 200px;
+  margin: 40px;
+  border-radius: 50%;
+  border-color: #4790BB;
+}
+
+.skill-index-body {
+  white-space: pre-wrap;
+  width: 100px;
+  text-align: center;
+  margin: 0 auto;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#skills_index {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.skill-index>div {
+  text-align: center;
+}
+
+.skill-delete-btn {
+  position: relative;
+  top: 5px;
 }
 
 //  users/_calendar.html.erb
