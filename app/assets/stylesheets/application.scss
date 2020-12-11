@@ -17,6 +17,19 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+// @font-face{
+//   font-family: "diaryfonts"
+//   src: font-url('851MkPOP_002.ttf') format('truetype');
+// }
+
+@font-face {
+  font-family: "diaryfonts";
+  src: url('851MkPOP_002.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -24,6 +37,7 @@
 }
 
 body{
+  font-family: diaryfonts;
 }
 
 .container {
