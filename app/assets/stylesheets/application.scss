@@ -249,6 +249,10 @@ header h4 strong {
   word-wrap: break-word;
 }
 
+.new-line{
+  white-space: pre-wrap;
+}
+
 .border1 {
     border-width: 1px 0 0 0;
     border-style: solid;
@@ -365,7 +369,7 @@ header h4 strong {
 .field-body-box{
   width: 500px;
   height: 300px;
-  word-wrap: break-word;
+  word-wrap: brea;
 }
 
 .field-title-box{
