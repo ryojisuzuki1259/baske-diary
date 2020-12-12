@@ -17,10 +17,23 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+@font-face {
+  font-family: "diaryfonts";
+  src: url('851MkPOP_002.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body{
+  font-family: diaryfonts;
+  font-size: 20px;
 }
 
 .container {
@@ -35,16 +48,25 @@ t-top{
 th {
   color: white;
   background: #4790BB;
+  font-family: "diaryfonts";
+  font-size: 18px;
 }
 
 td{
+  font-size: 18px;
   max-width: 200px;
+  font-family: "diaryfonts";
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 // white-space は空白文字の扱いを定義する。nowrapで、改行を半角スペースとして表示し、文字列を 1 行にする。
 // overflow は要素からはみ出したコンテンツに指定をする。hiddenで、はみ出し部分を切り、表示しないようにしている。
 // text-overflow ははみ出し領域の表示方法を指定する。ellipsisで、はみ出した際に末尾に「…」が付加される。
+}
+
+p{
+  font-family: "diaryfonts";
+  font-size: 18px;
 }
 
 .btn{
@@ -76,20 +98,38 @@ td{
   padding-left: 20px;
 }
 
+.p-left60{
+  padding-left: 60px;
+}
+
+.p-left120{
+  padding-left: 120px;
+}
+
+.underline{
+  background: linear-gradient(transparent 50%, #B0D7D5 90%);
+  font-family: "diaryfonts";
+}
+
+.underline2{
+  background: linear-gradient(transparent 90%, #B0D7D5 90%);
+}
+
 // homes/top.html.erb
 .jumbotron{
   background-color:#B0D7D5;
   margin-bottom: 0;
   display: flex;
   justify-content: center;
+  height: 290px;
 }
 
 .jumbotron h1{
-  font-size: 100px;
+  font-size: 150px;
 }
 
 .jumbotron p{
-  line-height: 1.5;
+  line-height: 2;
 }
 
 .top-text{
@@ -102,6 +142,11 @@ td{
   font-family: 'Amatic SC', cursive;
   display: flex;
   align-items: center;
+}
+
+.top-text-box>p{
+  font-family: "diaryfonts";
+  font-size: 25px;
 }
 
 .site-introduction{
@@ -117,7 +162,10 @@ td{
 }
 
 .introduction-text p {
-  margin: 20px 0;
+  margin: 40px 0;
+  font-size: 23px;
+  width: 500px;
+  line-height: 1.3;
 }
 
 .swiper-container{
@@ -209,6 +257,14 @@ header h4 strong {
   background-color: white;
 }
 
+#tabs>li>a{
+  font-family: "diaryfonts";
+}
+
+.diary-element-box {
+  width: 150px;
+}
+
 // _profile
 .profile-show{
   display: flex;
@@ -224,6 +280,10 @@ header h4 strong {
   width: 700px;
   height: 60px;
   word-wrap: break-word;
+}
+
+.new-line{
+  white-space: pre-wrap;
 }
 
 .border1 {
@@ -273,8 +333,6 @@ header h4 strong {
 	text-decoration: none;
 	color: #fff;
 	background: #4790BB;
-	margin-top: 40px;
-	margin-left: 40px;
 	margin-bottom: 0;
 }
 
@@ -285,11 +343,72 @@ header h4 strong {
 	 background:#2A5772;
 }
 
+.diary-show {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1200px;
+}
+
+.diary-box {
+  height: 150px;
+  width: 500px;
+  border: 1rem solid;
+  border-color: #4790BB;
+  margin: 20px 33px;
+}
+
+.diary-box>h4 {
+  border-bottom: 1px solid;
+  border-color: #4790BB;
+  background-color: #4790BB;
+  margin: 0;
+  padding: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.diary-box-body{
+  height: 70px;
+  padding: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: normal;
+  display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  white-space: pre-wrap;
+}
+
+.diary-box-link{
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid;
+  border-color: #4790BB;
+  align-items: center;
+  height: 30px;
+  padding: 5px;
+}
+
+.diary-box-link > :first-child{
+  margin-right: auto;
+}
+
+.diary-box-link div {
+  margin-right: 5px;
+  font-size: 15px;
+}
+
+.diary-box-body {
+  line-height: 1.2;
+  font-size: 18px;
+}
+
 // diaries/new.html.erb
 .field-body-box{
   width: 500px;
   height: 300px;
-  word-wrap: break-word;
+  word-wrap: brea;
 }
 
 .field-title-box{
@@ -328,24 +447,27 @@ header h4 strong {
 
 .comment-body{
   white-space: normal;
+  width: 700px;
 }
 
 .diary-edit-btn{
   margin: 0 20px;
 }
 
-.diary-comment-btn{
-  margin-left: 150px;
-}
-
 .comment-index{
   margin-top: 40px;
 }
 
+.diary-body-box{
+  white-space: pre-wrap;
+}
+
 // users/_skill.html.erb
 
-.skll-box{
+.skill-box{
   margin: 20px;
+  position: relative;
+  right: 130px;
 }
 
 .skill-text{
@@ -374,9 +496,49 @@ header h4 strong {
 }
 
 .skill-update-btn{
-  background-color: white;
-  border-color: white;
-  width: 55px;
+  background-color: #4790BB;
+  border-color: #4790BB;
+  width: 20px;
+  border-radius: 50%;
+  height: 20px;
+  border-style: solid;
+  text-align: center;
+  position: relative;
+  top: 2px;
+  color: white;
+}
+
+.skill-index{
+  border: 1rem solid;
+  height: 200px;
+  width: 200px;
+  margin: 40px;
+  border-radius: 50%;
+  border-color: #4790BB;
+}
+
+.skill-index-body {
+  white-space: pre-wrap;
+  width: 100px;
+  text-align: center;
+  margin: 0 auto;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#skills_index {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.skill-index>div {
+  text-align: center;
+}
+
+.skill-edit-box{
+  font-size: 13px;
 }
 
 //  users/_calendar.html.erb

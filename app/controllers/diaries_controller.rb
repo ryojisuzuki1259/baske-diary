@@ -45,7 +45,8 @@ class DiariesController < ApplicationController
   def destroy
     @diary = Diary.find(params[:id])
     @diary.destroy
-    redirect_to user_path(current_user)
+    @user = current_user
+    @diaries = @user.diaries.order(id: "DESC")
   end
 
   private

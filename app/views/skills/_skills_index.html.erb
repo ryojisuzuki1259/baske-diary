@@ -1,21 +1,22 @@
 <% i = 0 %>
 <% skills.each do |skill| %>
-  <tr>
-    <td><%= i+=1 %></td>
-    <td class="comment-body"><%= skill.name %></td>
-    <td id="skill-edit<%= skill.id %>">
+  <div class="skill-index">
+    <div><%= i+=1 %></div>
+    <div class="skill-index-body"><%= skill.name %></div>
+    <div id="skill-edit<%= skill.id %>" class="skill-edit-box">
       <% if skill.user == current_user %>
         <%= render "skills/skill_edit", skill: skill %>
       <% else %>
         <%= skill.level %>%
       <% end %>
-    </td>
-    <td>
+    </div>
+    <div class="skill-delete-btn">
       <% if skill.user == current_user %>
         <%= link_to skill_path(skill), method: :delete, remote:true, data: {confirm: "本当に削除してもよろしいですか？"} do %>
-          <p><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> 削除</p>
+          <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
         <% end %>
       <% end %>
-    </td>
-  </tr>
+    </div>
+  </div>
 <% end %>
+
