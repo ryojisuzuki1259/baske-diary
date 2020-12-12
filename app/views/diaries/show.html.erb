@@ -29,11 +29,11 @@
         <div class="diary-edit-btn"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 編集</div>
       <% end %>
     <% end %>
-    <% if @diary.user == current_user %>
-      <%= link_to diary_path(@diary), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} do %>
-        <div class="diary-delete-btn"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> 削除</div>
-      <% end %>
-    <% end %>
+    <!--<%# if @diary.user == current_user %>-->
+    <!--  <div id="diary-show-delete">-->
+    <!--    <%#= render "diaries/diary_show", diary: @diary%>-->
+    <!--  </div>-->
+    <!--<%# end %>-->
   </div>
 
   <div class="diary-btn-box">
