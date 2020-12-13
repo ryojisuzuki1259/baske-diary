@@ -36,6 +36,10 @@ body{
   font-size: 20px;
 }
 
+#user_password, #user_password_confirmation, #user_current_password{
+  font-family: sans-serif;
+}
+
 .container {
   color: #2A5772;
   margin-bottom: 50px;
