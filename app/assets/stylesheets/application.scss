@@ -110,6 +110,10 @@ p{
   padding-left: 120px;
 }
 
+.p-left-right20{
+  padding: 0 20px;
+}
+
 .underline{
   background: linear-gradient(transparent 50%, #B0D7D5 90%);
   font-family: "diaryfonts";
@@ -117,6 +121,14 @@ p{
 
 .underline2{
   background: linear-gradient(transparent 90%, #B0D7D5 90%);
+}
+
+.green-color{
+  background: linear-gradient(transparent 50%, green 90%);
+}
+
+.red-color{
+  background: linear-gradient(transparent 50%, red 90%);
 }
 
 // homes/top.html.erb
