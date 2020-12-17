@@ -4,7 +4,6 @@ require 'net/https'
 module Language
   class << self
     def get_data(text)
-      puts "https://language.googleapis.com/v1beta1/documents:analyzeSentiment?key=#{ENV['GOOGLE_API_KEY']}"
       # APIのURL作成
       api_url = "https://language.googleapis.com/v1beta1/documents:analyzeSentiment?key=#{ENV['GOOGLE_API_KEY']}"
       # APIリクエスト用のJSONパラメータ
@@ -22,7 +21,6 @@ module Language
       request['Content-Type'] = 'application/json'
       response = https.request(request, params)
       # APIレスポンス出力
-      puts "APIレスポンス出力#{JSON.parse(response.body)}"
       JSON.parse(response.body)['documentSentiment']['score']
     end
   end
