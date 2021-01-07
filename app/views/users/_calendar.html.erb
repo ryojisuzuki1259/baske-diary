@@ -8,7 +8,31 @@
   <div class="container center">
     <div id="event-form">
       <% if user == current_user %>
-        <%= render 'events/form', event: event %>
+        <%= form_with(model: event, local: true) do |form| %>
+          <div class="input-form">
+            <div class="field">
+              <%= form.hidden_field :user_id, :value => current_user.id %>
+            </div>
+
+            <div class="field">
+              <div><%= form.label :"タイトル", class:"field-box" %></div>
+              <div><%= form.label :"内容", class:"field-box diary-body-element" %></div>
+              <div><%= form.label :"開始日時", class:"field-box" %></div>
+              <div><%= form.label :"終了日時", class:"field-box" %></div>
+            </div>
+
+            <div class="field">
+              <div><%= form.text_field :title, class:"field-box" %></div>
+              <div><%= form.text_area :body, class:"field-box diary-body-content" %></div>
+              <div class="field-box event-start-date"><%= form.datetime_select :start_date, use_month_numbers:true %></div>
+              <div class="field-box event-end-date"><%= form.datetime_select :end_date, use_month_numbers:true %></div>
+            </div>
+          </div>
+
+          <div class="actions">
+            <%= form.submit "保存する", class:"btn" %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
