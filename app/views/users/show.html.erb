@@ -38,7 +38,7 @@
 
  <% if @user == current_user %>
  <div id="event" class="tab">
-   <%= render "users/calendar" %>
+   <%= render "users/calendar", user: @user, event: @event %>
  </div>
  <% end %>
 

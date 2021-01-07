@@ -12,5 +12,6 @@ class UsersController < ApplicationController
     @diaries = @user.diaries.order(id: "DESC")
     @skill = Skill.new
     @skills = @user.skills
+    @event = Event.new
   end
 end

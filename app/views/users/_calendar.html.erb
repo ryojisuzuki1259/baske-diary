@@ -1,7 +1,25 @@
 <div class="container">
   <div class="skill-btn-box">
-    <%= link_to 'イベント新規作成', new_event_path, class:"skill-btn btn" %>
+    <% if user == current_user %>
+      <button id="event-open-btn" class="skill-btn btn">イベント新規登録</button>
+    <% end %>
   </div>
+  
+  <div class="container center">
+    <div id="event-form">
+      <% if user == current_user %>
+        <%= render 'events/form', event: event %>
+      <% end %>
+    </div>
+  </div>
+  <script> // 入力欄が隠れており、ボタンを押すと出てくるコード(スライドトグル)
+    $('#event-form').hide();
+
+    $('#event-open-btn').click(function() {
+        $('#event-form').slideToggle();
+    })
+  </script>
+  
   <div id="calendar"></div>
   <%= link_to events_path do %>
     <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> イベント一覧
