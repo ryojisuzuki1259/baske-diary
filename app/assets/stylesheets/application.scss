@@ -282,6 +282,15 @@ header h4 strong {
   width: 150px;
 }
 
+#error_explanation {
+  width: 450px;
+  border: none;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: white;
+  margin: 0 auto;
+}
+
 // _profile
 .profile-show{
   display: flex;

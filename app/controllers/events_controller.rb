@@ -36,7 +36,7 @@ class EventsController < ApplicationController
         format.html { redirect_to @event, flash: { key: 'イベントを新規作成しました！' } }
         format.json { render :show, status: :created, location: @event }
       else
-        format.html { render :new }
+        format.html { render "users/show" }
         format.json { render json: @event.errors, status: :unprocessable_entity }
         @user = current_user
       end
