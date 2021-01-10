@@ -3,12 +3,14 @@ ja:
     models:
       event: イベント
       diary: ダイアリー
+      skill: スキル
     attributes:
       event:
         title: タイトル
         body: 内容
       diary:
         title: タイトル
-        body: 内容
-
+        body: ダイアリー内容
+      skill:
+        name: 練習中スキル
 
