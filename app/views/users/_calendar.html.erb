@@ -5,10 +5,14 @@
     <% end %>
   </div>
   
+  <div id="event_error_explanation">
+    <%= render "events/errors", event: event %>
+  </div>
+  
   <div class="container center">
     <div id="event-form">
       <% if user == current_user %>
-        <%= form_with(model: event, local: true) do |form| %>
+        <%= form_with(model: event) do |form| %>
           <div class="input-form">
             <div class="field">
               <%= form.hidden_field :user_id, :value => current_user.id %>

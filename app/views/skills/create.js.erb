@@ -1,2 +1,3 @@
 $("#skills_index").html("<%= j(render 'skills/skills_index', skills: @user.skills) %>");
+$("#skill_error_explanation").html("<%= j(render 'skills/errors', { skill: @skill }) %>")
 $("textarea").val('')

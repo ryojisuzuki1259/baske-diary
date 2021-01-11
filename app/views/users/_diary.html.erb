@@ -5,17 +5,9 @@
     <% end %>
   </div>
 
-  <% if diary.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= diary.errors.count %> 件のエラーが発生:</h2>
-
-      <ul>
-      <% diary.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div id="diary_error_explanation">
+    <%= render "diaries/errors", diary: diary %>
+  </div>
 
   <%= render "diaries/new", diary: @diary %>
 

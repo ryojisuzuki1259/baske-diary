@@ -1,0 +1,4 @@
+$("#diary-index-btn").html("<%= j(render 'diaries/diary_index', diaries: @user.diaries.order(id: "DESC"), user: @user ) %>");
+$(":input").val('')
+$("#diary_error_explanation").html("<%= j(render 'diaries/errors', { diary: @diary }) %>")
+

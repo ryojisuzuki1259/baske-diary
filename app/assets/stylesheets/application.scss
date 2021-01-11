@@ -282,6 +282,13 @@ header h4 strong {
   width: 150px;
 }
 
+.alert-warning {
+  background-color: red;
+  border-color: red;
+  color: white;
+  padding: 20px;
+}
+
 // _profile
 .profile-show{
   display: flex;
