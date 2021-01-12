@@ -1,5 +1,4 @@
 <div class="container">
-
   <div id="notice"><strong><%= flash[:key] %></strong></div>
 
   <div class="event-content">
@@ -22,7 +21,6 @@
     <%= link_to edit_event_path(@event) do %>
       <div class="diary-edit-btn"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 編集</div>
     <% end %>
-
     <%= link_to event_path(@event), method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } do %>
       <div class="diary-delete-btn"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> 削除</div>
     <% end %>
@@ -31,5 +29,4 @@
   <%= link_to user_path(current_user), class:"back-home" do %>
     <div><span class="glyphicon glyphicon-home" aria-hidden="true"></span> マイページに戻る</div>
   <% end %>
-
 </div>

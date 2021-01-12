@@ -123,13 +123,88 @@ p{
   background: linear-gradient(transparent 90%, #B0D7D5 90%);
 }
 
-.green-color{
+.green-color {
   background: linear-gradient(transparent 50%, green 90%);
+  position: relative;
+  display: inline-block;
+  padding: 7px 10px;
+  margin: 18px 0;
+  min-width: 120px;
+  max-width: 100%;
+  font-size: 16px;
+  border: solid 2px green;
+  box-sizing: border-box;
+  border-radius: 15px;
 }
 
-.red-color{
-  background: linear-gradient(transparent 50%, red 90%);
+.green-color:before {
+  content: "";
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  margin-left: -15px;
+  border: 12px solid transparent;
+  border-bottom: 13px solid #FFF;
+  z-index: 2;
 }
+
+.green-color:after {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  margin-left: -17px;
+  border: 14px solid transparent;
+  border-bottom: 14px solid green;
+  z-index: 1;
+}
+
+.green-color p {
+  margin: 0;
+  padding: 0;
+}
+
+.blue-color {
+  background: linear-gradient(transparent 50%, blue 90%);
+  position: relative;
+  display: inline-block;
+  padding: 7px 10px;
+  margin: 18px 0;
+  min-width: 120px;
+  max-width: 100%;
+  font-size: 16px;
+  border: solid 2px blue;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+
+.blue-color:before {
+  content: "";
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  margin-left: -15px;
+  border: 12px solid transparent;
+  border-bottom: 13px solid #FFF;
+  z-index: 2;
+}
+
+.blue-color:after {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  margin-left: -17px;
+  border: 14px solid transparent;
+  border-bottom: 14px solid blue;
+  z-index: 1;
+}
+
+.blue-color p {
+  margin: 0;
+  padding: 0;
+}
+
 
 // homes/top.html.erb
 .jumbotron{
@@ -878,6 +953,14 @@ header h4 strong {
   
   .favorite-btn{
     width: 80px;
+  }
+  
+  .green-color p {
+    font-size: 13px;
+  }
+  
+  .blue-color p {
+    font-size: 13px;
   }
   
   //_skill
