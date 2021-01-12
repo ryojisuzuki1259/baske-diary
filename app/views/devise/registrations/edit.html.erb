@@ -6,10 +6,10 @@
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="input-form">
   <div class="field">
-    <%= f.label :current_password, "現在のパスワード", class:"field-box" %> <i><strong>( 入力必須 )</strong></i><br />
+    <span class="css-br"><%= f.label :current_password, "現在のパスワード", class:"field-box" %></span> <i><strong>( 入力必須 )</strong></i><br />
     <%= f.label :name, "名前", class:"field-box" %><br />
     <%= f.label :email, "メールアドレス", class:"field-box" %><br />
-    <%= f.label :password, "パスワード", class:"field-box" %> <i><strong>( パスワードを変更しない場合は空欄 )</strong></i><br />
+    <span class="css-br"><%= f.label :password, "パスワード", class:"field-box" %></span> <i><strong>( パスワードを変更しない場合は空欄 )</strong></i><br />
     <%= f.label :password_confirmation, "パスワード再入力", class:"field-box" %><br />
     <%= f.label :group, "所属団体（任意）", class:"field-box" %><br />
     <%= f.label :prefecture, "活動エリア（都道府県、任意）", class:"field-box" %><br />

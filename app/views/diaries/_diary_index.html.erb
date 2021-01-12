@@ -15,14 +15,18 @@
         <div>
           <% if user == current_user %>
             <%= link_to edit_diary_path(diary) do %>
-              <div><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 編集</div>
+              <div>
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> <span class="display_non">編集</span>
+              </div>
             <% end %>
           <% end %>
         </div>
         <div>
           <% if user == current_user %>
             <%= link_to diary_path(diary), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, remote: true do %>
-              <div><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> 削除</div>
+              <div>
+                <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> <span class="display_non">削除</span>
+              </div>
             <% end %>
         <% end %>
         </div>

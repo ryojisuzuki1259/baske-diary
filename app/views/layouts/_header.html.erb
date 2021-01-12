@@ -11,8 +11,14 @@
       <%= image_tag('logo.png', size: '110x60') %>
     <% end %>
   </div>
-
-  <div class = "top-links">
+  
+  <p class="btn-gnavi">
+		<span></span>
+		<span></span>
+		<span></span>
+	</p>
+	
+  <div class = "top-links" id="global-navi">
   <% if user_signed_in? %>
     <div class = "top-links-box"><%= link_to "マイページ", user_path(current_user) %></div>
     <div class = "top-links-box"><%= link_to "ユーザー", users_path %></div>
@@ -25,3 +31,25 @@
   </div>
 
 </header>
+
+<script>
+$(function(){
+    $(".btn-gnavi").on("click", function(){
+        // ハンバーガーメニューの位置を設定
+        var rightVal = 0;
+        if($(this).hasClass("open")) {
+            // 位置を移動させメニューを開いた状態にする
+            rightVal = -200;
+            // メニューを開いたら次回クリック時は閉じた状態になるよう設定
+            $(this).removeClass("open");
+        } else {
+            // メニューを開いたら次回クリック時は閉じた状態になるよう設定
+            $(this).addClass("open");
+        }
+ 
+        $("#global-navi").stop().animate({
+            right: rightVal
+        }, 200);
+    });
+});
+</script>
