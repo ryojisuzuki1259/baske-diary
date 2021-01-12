@@ -205,7 +205,6 @@ p{
   padding: 0;
 }
 
-
 // homes/top.html.erb
 .jumbotron{
   background-color:#B0D7D5;
@@ -961,6 +960,19 @@ header h4 strong {
   
   .blue-color p {
     font-size: 13px;
+  }
+  
+  textarea#diary_comment_body {
+    width: 100%;
+    margin: 10px 0;
+  }
+  
+  h4.comment-index {
+    font-size: 15px;
+  }
+  
+  span.comment-time {
+    font-size: 10px;
   }
   
   //_skill

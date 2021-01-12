@@ -1,2 +1,3 @@
 $("#comments_index").html("<%= j(render 'diary_comments/comments_index', diary_comments: @diary.diary_comments ) %>");
 $("textarea").val('')
+$("#comment_error_explanation").html("<%= j(render 'diary_comments/errors', { comment: @comment }) %>")

@@ -45,7 +45,11 @@
   </div>
 
   <div class="diary-btn-box">
-  <button id="comment-btn" class="diary-comment-form btn">コメントフォーム</button>
+    <button id="comment-btn" class="diary-comment-form btn">コメントフォーム</button>
+  </div>
+  
+  <div id="comment_error_explanation">
+    <%= render "diary_comments/errors", comment: @comment %>
   </div>
 
   <div class="container center">
