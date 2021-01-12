@@ -860,6 +860,46 @@ header h4 strong {
   }
   
   .field {
+    // width: 100%;
+  }
+  
+  input#diary_title {
     width: 100%;
   }
+  
+  textarea#diary_body {
+    width: 100%;
+  }
+  
+  //_skill
+  .skill-box {
+    position: inherit;
+  }
+  
+  #skills_index {
+    justify-content: center;
+  }
+  
+  //_calendar
+  .res-center{
+    display: flex;
+    justify-content: center;
+  }
+  
+  textarea#event_body {
+    width: 100%;
+  }
+  
+  .event-elements{
+    width: 140px;
+  }
+  
+  .event-element {
+    width: 100%;
+  }
+  
+  //events/index
+  td, th {
+    font-size: 15px;
+  } 
 }

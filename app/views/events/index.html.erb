@@ -4,6 +4,7 @@
 
 <h4><strong>イベント一覧</strong></h4>
 
+<div style="overflow-x:auto;">
 <table class="table">
   <thead>
     <tr>
@@ -24,23 +25,30 @@
         <td><%= event.end_date.strftime("%Y-%m-%d %H:%M") %></td>
         <td>
           <%= link_to event do %>
-            <p><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> 詳細</p>
+            <p>
+              <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> <span class="display_non">詳細</span>
+            </p>
           <% end %>
         </td>
         <td>
           <%= link_to edit_event_path(event) do %>
-            <p><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 編集</p>
+            <p>
+              <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> <span class="display_non">編集</span>
+              </p>
           <% end %>
         </td>
         <td>
           <%= link_to event, method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } do %>
-            <p><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> 削除</p>
+            <p>
+              <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> <span class="display_non">削除</span>
+            </p>
           <% end %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 
 <%= link_to user_path(@user), class:"back-home" do %>
   <div><span class="glyphicon glyphicon-home" aria-hidden="true"></span> マイページに戻る</div>

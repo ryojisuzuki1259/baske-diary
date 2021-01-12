@@ -18,7 +18,7 @@
               <%= form.hidden_field :user_id, :value => current_user.id %>
             </div>
 
-            <div class="field">
+            <div class="field event-elements">
               <div><%= form.label :"タイトル", class:"field-box" %></div>
               <div><%= form.label :"内容", class:"field-box diary-body-element" %></div>
               <div><%= form.label :"開始日時", class:"field-box" %></div>
@@ -48,9 +48,9 @@
     })
   </script>
   
-  <div id="calendar"></div>
+  <div id="calendar" class="display_non"></div>
   <%= link_to events_path do %>
-    <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> イベント一覧
+    <span class="res-center"><span class="glyphicon glyphicon-th-list res-center" aria-hidden="true"></span> イベント一覧</span>
   <% end %>
 </div>
 
