@@ -856,11 +856,7 @@ header h4 strong {
   }
   
   .diary-box {
-    height: 155px;
-  }
-  
-  .field {
-    // width: 100%;
+    height: 165px;
   }
   
   input#diary_title {
@@ -869,6 +865,19 @@ header h4 strong {
   
   textarea#diary_body {
     width: 100%;
+  }
+  
+  .favorite-count-none, .favorite-count {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .diary-box-link {
+    padding: 25px 0; 
+  }
+  
+  .favorite-btn{
+    width: 80px;
   }
   
   //_skill
@@ -902,4 +911,9 @@ header h4 strong {
   td, th {
     font-size: 15px;
   } 
+  
+  //folllowings followings
+  h3, .h3 {
+    font-size: 18px;
+  }
 }
