@@ -4,6 +4,10 @@
       <button id="skill-open-btn" class="skill-btn btn">スキル新規登録</button>
     <% end %>
   </div>
+  
+  <div id="skill_error_explanation">
+    <%= render "skills/errors", skill: skill %>
+  </div>
 
   <div class="container center">
     <% if user == current_user %>

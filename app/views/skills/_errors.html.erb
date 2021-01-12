@@ -1,0 +1,10 @@
+<% if skill.errors.any? %>
+  <div class="error_message alert alert-warning">
+    <p><%= skill.errors.count %> 件のエラーが発生:</p>
+    <ul>
+      <% skill.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

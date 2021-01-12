@@ -30,14 +30,15 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
-
+    @event.user_id = current_user.id
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, flash: { key: 'イベントを新規作成しました！' } }
         format.json { render :show, status: :created, location: @event }
       else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        # format.html { render "events/create" }
+        # format.json { render json: @event.errors, status: :unprocessable_entity }
+        format.js { render "events/create" } #js形式で送信されたデータの処理。エラー分を非同期で表示させるためcreateにレンダリング
         @user = current_user
       end
     end

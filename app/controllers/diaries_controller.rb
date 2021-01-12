@@ -17,15 +17,8 @@ class DiariesController < ApplicationController
     @diary = Diary.new(diary_params)
     @diary.user_id = current_user.id
     @diary.score = Language.get_data(diary_params[:body])
-    if @diary.save
-      redirect_to diary_path(@diary), flash: { key: "ダイアリーを投稿しました！" }
-    else
-      @user = current_user
-      @diaries = @user.diaries
-      @skill = Skill.new
-      @skills = @user.skills
-      render 'users/show'
-    end
+    @diary.save
+    @user = @diary.user
   end
 
   def edit
