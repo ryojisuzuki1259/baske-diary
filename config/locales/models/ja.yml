@@ -4,6 +4,7 @@ ja:
       event: イベント
       diary: ダイアリー
       skill: スキル
+      diary_comment: コメント
     attributes:
       event:
         title: タイトル
@@ -15,4 +16,6 @@ ja:
         body: ダイアリー内容
       skill:
         name: 練習中スキル
+      diary_comment:
+        body: コメント
 

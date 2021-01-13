@@ -1,36 +1,47 @@
-
 <div class="jumbotron">
   <div class="top-text">
     <div class="top-text-box"><h1>Baske Diary</h1></div>
     <div class="top-text-box">
       <p>
-      このサイトでは<br>
-       あなたのバスケットボールに関する情報を管理し<br>
-       スキルアップ向上をお手伝いいたします
+        このサイトでは<br>
+        <span class="css-br">あなたのバスケットボールに</span>関する情報を管理し<br>
+        <span class="css-br">スキルアップ向上を</span>お手伝いいたします
       </p>
     </div>
   </div>
 </div>
 
 <div class="site-introduction">
-<div class="introduction-text">
-  <p><span class="underline">試合や練習で学んだこと、感じたことを記録できる<br>文字に起こすことで現状の課題が明確に！</span></p>
-  <p class="p-left60"><span class="underline">練習しているスキルをリスト化<br>どれくらい習得できたか管理できる</span></p>
-  <p class="p-left120"><span class="underline">カレンダーで試合や練習日程の管理</span></p>
-</div>
-<div class="swiper-container">
-   <!-- メイン表示部分 -->
-   <div class="swiper-wrapper">
-     <!-- 各スライド -->
-     <div class="swiper-slide"><%= image_tag asset_path("スライド画像2.jpg"), :size => '820x360' %></div>
-     <div class="swiper-slide"><%= image_tag asset_path("スライド画像1.jpg"), :size => '820x360' %></div>
-     <div class="swiper-slide"><%= image_tag asset_path("スライド画像3.jpg"), :size => '820x360' %></div>
-   </div>
-   <!-- ナビケーション -->
-   <div class="swiper-button-prev"></div>
-   <div class="swiper-button-next"></div>
-   <div class="swiper-pagination"></div>
-</div>
+  <div class="introduction-text">
+    <p class="box1">
+      <span class="underline">
+        <span class="css-br">試合や練習で学んだこと、</span>感じたことを記録できる<br>文字に起こすことで現状の課題が明確に！
+      </span>
+    </p>
+    <p class="p-left60 box1">
+      <span class="underline">
+        <span class="css-br"><span class="css-br">練習しているスキルを</span>リスト化<br>どれくらい習得できたか</span>管理できる
+      </span>
+    </p>
+    <p class="p-left120 box1">
+      <span class="underline">
+        <span class="css-br">カレンダーで試合や</span>練習日程の管理
+      </span>
+    </p>
+  </div>
+  <div class="swiper-container display_non">
+     <!-- メイン表示部分 -->
+     <div class="swiper-wrapper">
+       <!-- 各スライド -->
+       <div class="swiper-slide"><%= image_tag asset_path("スライド画像2.jpg"), :size => '820x360' %></div>
+       <div class="swiper-slide"><%= image_tag asset_path("スライド画像1.jpg"), :size => '820x360' %></div>
+       <div class="swiper-slide"><%= image_tag asset_path("スライド画像3.jpg"), :size => '820x360' %></div>
+     </div>
+     <!-- ナビケーション -->
+     <div class="swiper-button-prev"></div>
+     <div class="swiper-button-next"></div>
+     <div class="swiper-pagination"></div>
+  </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.3.7/js/swiper.min.js"></script>

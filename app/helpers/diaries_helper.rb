@@ -3,7 +3,7 @@ module DiariesHelper
       if @diary.score > 0.0
         "green-color"
       elsif @diary.score < 0.0
-        "red-color"
+        "blue-color"
       elsif @diary.score == nil
         "noscore"
       end

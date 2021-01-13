@@ -1,0 +1,10 @@
+<% if comment.errors.any? %>
+  <div class="error_message alert alert-warning">
+    <p><%= comment.errors.count %> 件のエラーが発生:</p>
+    <ul>
+      <% comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

@@ -123,12 +123,86 @@ p{
   background: linear-gradient(transparent 90%, #B0D7D5 90%);
 }
 
-.green-color{
+.green-color {
   background: linear-gradient(transparent 50%, green 90%);
+  position: relative;
+  display: inline-block;
+  padding: 7px 10px;
+  margin: 18px 0;
+  min-width: 120px;
+  max-width: 100%;
+  font-size: 16px;
+  border: solid 2px green;
+  box-sizing: border-box;
+  border-radius: 15px;
 }
 
-.red-color{
-  background: linear-gradient(transparent 50%, red 90%);
+.green-color:before {
+  content: "";
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  margin-left: -15px;
+  border: 12px solid transparent;
+  border-bottom: 13px solid #FFF;
+  z-index: 2;
+}
+
+.green-color:after {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  margin-left: -17px;
+  border: 14px solid transparent;
+  border-bottom: 14px solid green;
+  z-index: 1;
+}
+
+.green-color p {
+  margin: 0;
+  padding: 0;
+}
+
+.blue-color {
+  background: linear-gradient(transparent 50%, blue 90%);
+  position: relative;
+  display: inline-block;
+  padding: 7px 10px;
+  margin: 18px 0;
+  min-width: 120px;
+  max-width: 100%;
+  font-size: 16px;
+  border: solid 2px blue;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+
+.blue-color:before {
+  content: "";
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  margin-left: -15px;
+  border: 12px solid transparent;
+  border-bottom: 13px solid #FFF;
+  z-index: 2;
+}
+
+.blue-color:after {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  margin-left: -17px;
+  border: 14px solid transparent;
+  border-bottom: 14px solid blue;
+  z-index: 1;
+}
+
+.blue-color p {
+  margin: 0;
+  padding: 0;
 }
 
 // homes/top.html.erb
@@ -685,4 +759,256 @@ header h4 strong {
   position: relative;
   left: 5px;
   // いいねをログインユーザーが押していない時
+}
+
+/* スマートフォンサイズ（425px）以下の際に適用される設定 */
+@media screen and (max-width: 425px) {
+  .top-text {
+    display: block;
+  }
+  
+  .jumbotron {
+    height: 100%;
+  }
+  
+  .jumbotron h1 {
+    text-align: center;
+  }
+  
+  .css-br::after {
+    content: "\A" ;
+    white-space: pre;
+  }
+  
+  .top-text-box > p {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .site-introduction {
+    display: block;
+  }
+  
+  .introduction-text{
+    width: auto;
+  }
+  
+  .introduction-text p {
+    font-size: 20px;
+    width: auto;
+  }
+  
+  .display_non {
+    display: none;
+  }
+  
+  .box1{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    border: solid 3px #6091d3;/*線*/
+    border-radius: 10px;/*角の丸み*/
+    text-align: center;
+  }
+  
+  .logo {
+    right: 130px;
+    left: auto;
+    top: 20px;
+  }
+  header {
+    height: 130px;
+  }
+  
+  //ハンバーガーメニュー
+  .top-links {
+    position: fixed;
+    top: 0;
+    right: -200px;
+    width: 200px;
+    height: 100%;
+    padding-top: 50px;
+    font-size: 16px;
+    box-sizing: border-box;
+    z-index: 2;
+    display: block;
+    background: #2A5772;
+    margin: auto;
+  }
+  
+  .top-links-box {
+    height: 30px;
+  }
+  
+  .btn-gnavi {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 24px;
+    z-index: 3;
+    box-sizing: border-box;
+    cursor: pointer;
+    -webkit-transition: all 400ms;
+    transition: all 400ms
+  }
+  
+  .btn-gnavi span {
+    position: absolute;
+    width: 30px;
+    height: 4px;
+    background: white;
+    border-radius: 10px;
+    -webkit-transition: all 400ms;
+    transition: all 400ms
+  }
+  
+  .btn-gnavi span:nth-child(1) {
+    top: 0
+  }
+ 
+  .btn-gnavi span:nth-child(2) {
+    top: 10px
+  }
+ 
+  .btn-gnavi span:nth-child(3) {
+    top: 20px
+  }
+  
+  .btn-gnavi.open {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg)
+  }
+  
+  //users/show
+  //_profile
+  .container {
+    font-size: 15px;
+  }
+  
+  h2 {
+    font-size: 20px;
+  }
+  
+  .profile-element {
+    width: 180px;
+  }
+  
+  .profile-show {
+    display: flex;
+    margin-top: 50px;
+  }
+  
+  .profile-body-box {
+    width: 100%;
+  }
+  
+  .profile-body {
+    width: 150px;
+  }
+  
+  //diaries/edit
+  input#user_current_password {
+    width: 150px;
+  }
+  
+  input#user_password {
+    width: 150px;
+  }
+  
+  input#user_password_confirmation {
+    width: 150px;
+  }
+  
+  textarea#user_introduction {
+    width: 150px;
+  }
+  
+  //_diary
+  .diary-show {
+    width: 100%;
+  }
+  
+  .diary-box {
+    height: 165px;
+  }
+  
+  input#diary_title {
+    width: 100%;
+  }
+  
+  textarea#diary_body {
+    width: 100%;
+  }
+  
+  .favorite-count-none, .favorite-count {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .diary-box-link {
+    padding: 25px 0; 
+  }
+  
+  .favorite-btn{
+    width: 80px;
+  }
+  
+  .green-color p {
+    font-size: 13px;
+  }
+  
+  .blue-color p {
+    font-size: 13px;
+  }
+  
+  textarea#diary_comment_body {
+    width: 100%;
+    margin: 10px 0;
+  }
+  
+  h4.comment-index {
+    font-size: 15px;
+  }
+  
+  span.comment-time {
+    font-size: 10px;
+  }
+  
+  //_skill
+  .skill-box {
+    position: inherit;
+  }
+  
+  #skills_index {
+    justify-content: center;
+  }
+  
+  //_calendar
+  .res-center{
+    display: flex;
+    justify-content: center;
+  }
+  
+  textarea#event_body {
+    width: 100%;
+  }
+  
+  .event-elements{
+    width: 140px;
+  }
+  
+  .event-element {
+    width: 100%;
+  }
+  
+  //events/index
+  td, th {
+    font-size: 14px;
+  } 
+  
+  //folllowings followings
+  h3, .h3 {
+    font-size: 18px;
+  }
 }

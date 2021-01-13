@@ -24,7 +24,14 @@
         いいね　<%= @diary.favorites.count %>
       <% end %>
     </div>
-    <div class="<%= color %>">感情分析スコア　<%= @diary.score %></div>
+    <div class="<%= color %>">
+      <% if @diary.score > 0.0 %>
+        <p>引き続き頑張ろう！</p>
+      <% elsif @diary.score < 0.0 %>
+        <p>ゆっくり休もう！</p>
+      <% else %>
+      <% end %>
+    </div>
     <% if @diary.user == current_user %>
       <%= link_to edit_diary_path(@diary) do %>
         <div class="diary-edit-btn"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 編集</div>
@@ -38,7 +45,11 @@
   </div>
 
   <div class="diary-btn-box">
-  <button id="comment-btn" class="diary-comment-form btn">コメントフォーム</button>
+    <button id="comment-btn" class="diary-comment-form btn">コメントフォーム</button>
+  </div>
+  
+  <div id="comment_error_explanation">
+    <%= render "diary_comments/errors", comment: @comment %>
   </div>
 
   <div class="container center">

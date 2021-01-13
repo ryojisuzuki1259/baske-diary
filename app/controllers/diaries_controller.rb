@@ -7,6 +7,7 @@ class DiariesController < ApplicationController
     @user = @diary.user
     @diary_comment = DiaryComment.new
     @diary_comments = @diary.diary_comments
+    @comment = DiaryComment.new
   end
 
   def new
